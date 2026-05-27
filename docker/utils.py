@@ -200,7 +200,10 @@ def fetch_wren_ai_docs(doc_endpoint: str, is_oss: bool) -> list[dict]:
     results = []
     for doc in docs:
         if doc:
-            path, content = doc.split("\n", 1)
+            lines = doc.split("\n", 1)
+            if len(lines) < 2:
+                continue
+            path, content = lines
             results.append(
                 {
                     "path": f'{doc_endpoint_base}/{path.replace(".md", "")}',

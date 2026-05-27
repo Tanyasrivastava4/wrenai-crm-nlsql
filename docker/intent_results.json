@@ -1,0 +1,87 @@
+[
+  {
+    "query": "show activities not completed",
+    "intent": "TEXT_TO_SQL",
+    "reasoning": "User is clearly asking for specific data from the activities table."
+  },
+  {
+    "query": "show activities I need to do",
+    "intent": "TEXT_TO_SQL",
+    "reasoning": "User is clearly asking for specific data from the Activities table"
+  },
+  {
+    "query": "what's happening with my pipeline",
+    "intent": "TEXT_TO_SQL",
+    "reasoning": "User is asking about the status of their pipeline, indicating a request for data."
+  },
+  {
+    "query": "count contacts without email and show them",
+    "intent": "TEXT_TO_SQL",
+    "reasoning": "User is clearly asking for data from the Contacts table."
+  },
+  {
+    "query": "Who modified this lead record recently ",
+    "intent": "GENERAL",
+    "reasoning": "Unresolvable reference to 'this lead record' with no prior context, so user is seeking general guidance."
+  },
+  {
+    "query": "Who last changed this lead",
+    "intent": "GENERAL",
+    "reasoning": "User asks about lead change, but 'this lead' is unclear without context."
+  },
+  {
+    "query": "Who edited this lead record ",
+    "intent": "TEXT_TO_SQL",
+    "reasoning": "The user is asking for specific data about a lead record editor, indicating a data request."
+  },
+  {
+    "query": "Show me all deals with their custom field values",
+    "intent": "TEXT_TO_SQL",
+    "reasoning": "User is clearly asking for data from the Deals table with custom field values."
+  },
+  {
+    "query": "Show deals with custom fields",
+    "intent": "TEXT_TO_SQL",
+    "reasoning": "User is clearly asking for data from the Deals table with custom fields."
+  },
+  {
+    "query": "List deals including custom field data ",
+    "intent": "TEXT_TO_SQL",
+    "reasoning": "User is clearly asking for specific data from the Deals table"
+  },
+  {
+    "query": "Which leads came from web form submissions",
+    "intent": "TEXT_TO_SQL",
+    "reasoning": "User is clearly asking for data related to leads from web form submissions."
+  },
+  {
+    "query": "List all closed deals",
+    "intent": "TEXT_TO_SQL",
+    "reasoning": "User is clearly asking for specific sales data from the database."
+  },
+  {
+    "query": "email ",
+    "intent": "TEXT_TO_SQL",
+    "reasoning": "User is asking for a specific data point, likely stored in the database."
+  },
+  {
+    "query": "backup",
+    "intent": "USER_GUIDE",
+    "reasoning": "User is seeking assistance on database backup, not requesting data."
+  },
+  {
+    "query": "show deals",
+    "intent": "TEXT_TO_SQL",
+    "reasoning": "User is clearly asking for data from the Deals table."
+  },
+  {
+    "query": "show me recent stuff",
+    "intent": "TEXT_TO_SQL",
+    "reasoning": "User requests recent data, likely referring to recent deals or activities in the CRM database."
+  },
+  {
+    "query": "check deals",
+    "intent": "TEXT_TO_SQL",
+    "reasoning": "User is clearly asking for data related to deals."
+  }
+]

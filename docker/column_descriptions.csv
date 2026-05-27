@@ -1,0 +1,1566 @@
+table_name,column_name,description
+Activities,activityId,Unique numeric identifier for the activity record.
+Activities,type,"Category of activity such as call, meeting, email, or task."
+Activities,subject,Brief title or summary line of the activity.
+Activities,startDateTime,Timestamp when the activity begins or is scheduled to begin.
+Activities,endDateTime,Timestamp when the activity ends, can be NULL.
+Activities,priority,"Importance level of the activity (low, medium, high, urgent)."
+Activities,guests,Text field listing invited participants or attendees.
+Activities,location,"Physical address or virtual meeting link for the activity."
+Activities,videoCallIntegration,Name or identifier of video conferencing platform used.
+Activities,description,Detailed explanatory text about the activity purpose.
+Activities,status,"Current state of the activity such as planned, completed, or cancelled."
+Activities,notes,Additional free-text remarks or internal comments.
+Activities,assignedTo,Numeric user ID of the person responsible for this activity.
+Activities,dealId,Numeric identifier linking this activity to a specific deal, can be NULL.
+Activities,leadId,Numeric identifier linking this activity to a specific lead, can be NULL.
+Activities,personId,Numeric identifier linking this activity to a specific person or contact, can be NULL.
+Activities,leadOrganizationId,Numeric identifier linking this activity to a specific organization, can be NULL.
+Activities,masterUserID,Numeric identifier of the CRM user who owns this record.
+Activities,isDone,Boolean flag indicating whether the activity is completed.
+Activities,contactPerson,Name of the primary contact person associated with this activity.
+Activities,email,Email address associated with the activity or primary contact.
+Activities,organization,Organization name associated with this activity.
+Activities,dueDate,Timestamp deadline by which the activity should be completed.
+Activities,markedAsDoneTime,Timestamp when the activity was marked as completed.
+Activities,calendar_event_id,External calendar system event identifier, can be NULL.
+Activities,activityTypeFlag,String indicator for activity type classification, defaults to 'time'.
+Activities,allContactPersons,Text field listing multiple contact persons involved in this activity.
+Activities,createdAt,Timestamp when this record was created.
+Activities,updatedAt,Timestamp when this record was last modified.
+ActivityColumns,id,Unique numeric primary key.
+ActivityColumns,masterUserID,Numeric user identifier who owns these column preferences.
+ActivityColumns,columns,"JSON or text field storing column visibility and display order preferences."
+ActivityColumns,createdAt,Timestamp when this record was created.
+ActivityColumns,updatedAt,Timestamp when this record was last modified.
+ActivitySettings,activitySettingId,Unique numeric identifier for this activity settings record.
+ActivitySettings,masterUserID,Numeric user identifier these settings belong to.
+ActivitySettings,showPopup,Boolean flag whether to show activity popup after deal creation.
+ActivitySettings,showType,"Enum value controlling when the activity popup appears, either 'always' or 'pipelines'."
+ActivitySettings,pipelines,Text field listing which pipeline IDs trigger the activity popup.
+ActivitySettings,defaultActivityType,Default activity type string when creating new activities.
+ActivitySettings,followUpTime,"String value for default follow-up scheduling, e.g., 'in 3 months'."
+ActivitySettings,allowUserDisable,Boolean flag whether individual users can disable the activity popup.
+ActivitySettings,showDealWonPopup,Boolean flag whether to show popup when a deal is marked as won.
+ActivitySettings,dealWonActivityType,Activity type string for follow-up activities after a deal is won.
+ActivitySettings,dealWonFollowUpTime,Follow-up time string for won deal activities.
+ActivitySettings,allowUserDisableDealWon,Boolean flag whether users can disable the won-deal popup.
+ActivitySettings,createdAt,Timestamp when this record was created.
+ActivitySettings,updatedAt,Timestamp when this record was last modified.
+ActivityTypes,activityTypeId,Unique numeric identifier for this activity type.
+ActivityTypes,name,"Display name of the activity type such as Call, Meeting, or Email."
+ActivityTypes,icon,"Icon identifier or path for visual representation of this activity type."
+ActivityTypes,isActive,Boolean flag whether this activity type is currently active and selectable.
+ActivityTypes,createdAt,Timestamp when this record was created.
+ActivityTypes,updatedAt,Timestamp when this record was last modified.
+Admins,id,Unique numeric primary key for admin account.
+Admins,email,Email address used for admin login and communication.
+Admins,password,Hashed password for admin authentication.
+Admins,otp,"One-time password value for two-factor authentication, can be NULL."
+Admins,otpExpiration,Timestamp when the current OTP expires, can be NULL.
+Admins,loginType,String indicating the authentication method used for login.
+Admins,createdAt,Timestamp when this admin account was created.
+Admins,updatedAt,Timestamp when this admin account was last modified.
+Attachments,attachmentID,Unique numeric primary key for the attachment record.
+Attachments,emailID,Numeric identifier linking this attachment to a specific email.
+Attachments,filename,Original name of the attached file.
+Attachments,contentType,"MIME type of the file such as image/png or application/pdf."
+Attachments,size,File size in bytes.
+Attachments,filePath,Storage path or URL where the file is located.
+Attachments,masterUserID,Numeric identifier of the user who owns this attachment.
+Attachments,createdAt,Timestamp when this record was created.
+Attachments,updatedAt,Timestamp when this record was last modified.
+AuditTrails,id,Unique numeric primary key.
+AuditTrails,programId,Numeric identifier of the program being audited, can be NULL.
+AuditTrails,mode,String indicating the operation mode or context.
+AuditTrails,createdBy,String name of the user who created this audit record, can be NULL.
+AuditTrails,error_desc,Text description of any error that occurred, can be NULL.
+AuditTrails,creatorId,Numeric identifier of the user who created this audit record, can be NULL.
+AuditTrails,timestamp,Timestamp of the audited event, can be NULL.
+AuditTrails,createdAt,Timestamp when this record was created.
+AuditTrails,updatedAt,Timestamp when this record was last modified.
+AutomationHistories,historyId,Unique numeric primary key for automation history record.
+AutomationHistories,automationId,Numeric identifier of the automation that was executed.
+AutomationHistories,status,"Enum value indicating execution status, either 'running', 'success', or 'failed'."
+AutomationHistories,failedStep,String name of the step where failure occurred, can be NULL.
+AutomationHistories,errorMessage,Text description of the error if execution failed, can be NULL.
+AutomationHistories,executionLog,Longtext field containing detailed execution logs.
+AutomationHistories,startedAt,Timestamp when automation execution started.
+AutomationHistories,completedAt,Timestamp when automation execution completed, can be NULL.
+AutomationHistories,createdAt,Timestamp when this record was created.
+AutomationHistories,updatedAt,Timestamp when this record was last modified.
+Automations,automationId,Unique numeric primary key for automation rule.
+Automations,automationData,Longtext field containing the automation configuration and trigger/action definitions.
+Automations,isActive,Boolean flag whether this automation is active and should execute.
+Automations,createdBy,Numeric identifier of the user who created this automation.
+Automations,createdAt,Timestamp when this record was created.
+Automations,updatedAt,Timestamp when this record was last modified.
+Campaigns,campaignId,Unique numeric primary key for campaign.
+Campaigns,campaignName,Name or title of the campaign.
+Campaigns,channel,"Communication channel used for the campaign such as email or WhatsApp."
+Campaigns,subject,Subject line of the campaign message.
+Campaigns,sender,Sender identifier or email address.
+Campaigns,emailContent,Numeric identifier referencing the email template used.
+Campaigns,messageBody,Text body content of the campaign message.
+Campaigns,mediaUrl,URL pointing to media file attached to the campaign, can be NULL.
+Campaigns,whatsappTemplateId,Identifier for WhatsApp template if channel is WhatsApp, can be NULL.
+Campaigns,entityType,"Type of entity the campaign targets such as lead, deal, or person."
+Campaigns,receivers,String specifying recipient list or filter criteria.
+Campaigns,sendingTime,Longtext field defining when the campaign should be sent.
+Campaigns,Engagement,Longtext field storing engagement metrics, can be NULL.
+Campaigns,isActive,Boolean flag whether the campaign is active.
+Campaigns,totalReceivers,Numeric count of total intended recipients.
+Campaigns,messagesSent,Numeric count of messages successfully sent.
+Campaigns,messagesFailed,Numeric count of messages that failed to send.
+Campaigns,status,"Current state of the campaign such as draft, active, completed, or paused."
+Campaigns,lastProcessedAt,Timestamp when the campaign was last processed, can be NULL.
+Campaigns,completedAt,Timestamp when the campaign finished processing, can be NULL.
+Campaigns,signatureId,Numeric identifier of the email signature used, can be NULL.
+Campaigns,maxEmailsPerHour,Maximum number of emails allowed to send per hour for rate limiting.
+Campaigns,maxConcurrentConnections,Maximum number of parallel email sending connections allowed.
+Campaigns,maxEmailsPerCampaign,Maximum total emails allowed for this campaign.
+Campaigns,filterId,Numeric identifier of the filter used to select recipients, can be NULL.
+Campaigns,filterName,Name of the filter used to select recipients, can be NULL.
+Campaigns,filterType,Type classification of the filter used.
+Campaigns,createdBy,Numeric identifier of the user who created this campaign.
+Campaigns,createdAt,Timestamp when this record was created.
+Campaigns,updatedAt,Timestamp when this record was last modified.
+CampaignSenders,id,Unique numeric primary key.
+CampaignSenders,campaignId,Numeric identifier of the campaign this sender is configured for, can be NULL.
+CampaignSenders,provider,"Email service provider name such as Gmail, Outlook, or SMTP."
+CampaignSenders,email,Email address used as the sender.
+CampaignSenders,name,Display name of the sender.
+CampaignSenders,companyName,Company name associated with the sender account.
+CampaignSenders,address,Street address of the sender or company.
+CampaignSenders,city,City of the sender or company.
+CampaignSenders,state,"State or province of the sender or company."
+CampaignSenders,zipCode,"Postal or zip code of the sender or company."
+CampaignSenders,country,Country of the sender or company.
+CampaignSenders,appPassword,"Application-specific password or authentication token for the email account."
+CampaignSenders,smtpHost,SMTP server hostname for outgoing email, can be NULL.
+CampaignSenders,smtpPort,SMTP server port number, can be NULL.
+CampaignSenders,smtpSecure,Boolean flag whether to use secure connection for SMTP, can be NULL.
+CampaignSenders,replyToMail,Email address where replies should be sent, can be NULL.
+CampaignSenders,isVerified,Boolean flag whether the sender account has been verified.
+CampaignSenders,verificationToken,Token used for verifying the sender account, can be NULL.
+CampaignSenders,verificationTokenExpiry,Timestamp when verification token expires, can be NULL.
+CampaignSenders,createdBy,Numeric identifier of the user who created this sender configuration.
+CampaignSenders,createdAt,Timestamp when this record was created.
+CampaignSenders,updatedAt,Timestamp when this record was last modified.
+Cards,cardId,Unique numeric primary key for dashboard card.
+Cards,dashboardId,Numeric identifier of the dashboard this card belongs to, can be NULL.
+Cards,uniqueId,Numeric unique identifier within the dashboard context.
+Cards,type,"Type of card such as chart, metric, or table."
+Cards,coordinates,Longtext field storing card position and size on the dashboard, can be NULL.
+Cards,ownerId,Numeric identifier of the user who owns this card.
+Cards,createdAt,Timestamp when this record was created.
+Cards,updatedAt,Timestamp when this record was last modified.
+company_settings,companySettingsId,Unique numeric primary key for company settings.
+company_settings,companyName,Name of the company, defaults to 'My Company'.
+company_settings,companyDomain,Domain name of the company website, can be NULL.
+company_settings,preferredMaintenanceTime,Longtext field defining preferred system maintenance window, can be NULL.
+company_settings,timezone,Timezone of the company, defaults to 'UTC'.
+company_settings,twoFactorMandatory,Boolean flag whether two-factor authentication is mandatory for all users, defaults to 0.
+company_settings,twoFactorGracePeriodDays,Number of grace period days before enforcing two-factor authentication, defaults to 7.
+company_settings,twoFactorEnforcedAt,Timestamp when two-factor authentication was enforced, can be NULL.
+company_settings,createdAt,Timestamp when this record was created.
+company_settings,updatedAt,Timestamp when this record was last modified.
+ContactChangeLogs,changeLogId,Unique numeric primary key for contact change log.
+ContactChangeLogs,syncHistoryId,Numeric identifier of the sync history this change belongs to.
+ContactChangeLogs,masterUserID,Numeric identifier of the user who owns this contact.
+ContactChangeLogs,personId,Numeric identifier of the CRM person record, can be NULL.
+ContactChangeLogs,googleContactId,String identifier of the Google Contact, can be NULL.
+ContactChangeLogs,operation,Enum value describing the operation performed.
+ContactChangeLogs,changeType,"Enum value indicating type of change: create, update, delete, conflict, skip, or error."
+ContactChangeLogs,direction,"Enum value indicating sync direction: google_to_crm, crm_to_google, or bidirectional."
+ContactChangeLogs,contactName,Name of the contact being changed, can be NULL.
+ContactChangeLogs,contactEmail,Email address of the contact being changed, can be NULL.
+ContactChangeLogs,fieldsBefore,Longtext field storing field values before the change, can be NULL.
+ContactChangeLogs,fieldsAfter,Longtext field storing field values after the change, can be NULL.
+ContactChangeLogs,changedFields,Longtext field listing which fields were changed, can be NULL.
+ContactChangeLogs,conflictReason,String explanation of why a conflict occurred, can be NULL.
+ContactChangeLogs,conflictResolution,"Enum value indicating resolution strategy used: newest_wins, google_wins, crm_wins, or manual."
+ContactChangeLogs,winningSource,"Enum value indicating which source won the conflict: google or crm, can be NULL."
+ContactChangeLogs,crmUpdatedAt,Timestamp when the CRM record was last updated, can be NULL.
+ContactChangeLogs,googleUpdatedAt,Timestamp when the Google Contact was last updated, can be NULL.
+ContactChangeLogs,errorMessage,Text description of any error that occurred, can be NULL.
+ContactChangeLogs,errorStack,Text field containing error stack trace, can be NULL.
+ContactChangeLogs,metadata,Longtext field storing additional metadata about the sync operation, can be NULL.
+ContactChangeLogs,createdAt,Timestamp when this record was created.
+ContactChangeLogs,updatedAt,Timestamp when this record was last modified.
+ContactSyncConfigs,syncConfigId,Unique numeric primary key for contact sync configuration.
+ContactSyncConfigs,masterUserID,Numeric identifier of the user this sync configuration belongs to.
+ContactSyncConfigs,provider,"Enum value indicating the contact provider: google, outlook, or office365, defaults to 'google'."
+ContactSyncConfigs,syncMode,"Enum value indicating sync mode: google_to_crm, crm_to_google, or bidirectional, defaults to 'bidirectional'."
+ContactSyncConfigs,syncDirection,"Enum value indicating sync direction: one_way or two_way, defaults to 'two_way'."
+ContactSyncConfigs,isActive,Boolean flag whether this sync configuration is active, defaults to 1.
+ContactSyncConfigs,autoSyncEnabled,Boolean flag whether automatic sync is enabled, defaults to 0.
+ContactSyncConfigs,syncFrequency,Numeric value indicating sync frequency in minutes, defaults to 60.
+ContactSyncConfigs,lastSyncAt,Timestamp when the last sync occurred, can be NULL.
+ContactSyncConfigs,nextSyncAt,Timestamp when the next sync is scheduled, can be NULL.
+ContactSyncConfigs,googleEmail,Email address of the connected Google account, can be NULL.
+ContactSyncConfigs,googleRefreshToken,Text field storing Google OAuth refresh token, can be NULL.
+ContactSyncConfigs,googleAccessToken,Text field storing Google OAuth access token, can be NULL.
+ContactSyncConfigs,googleTokenExpiry,Timestamp when the Google access token expires, can be NULL.
+ContactSyncConfigs,syncGroupFilter,String identifier for filtering contacts by group, can be NULL.
+ContactSyncConfigs,conflictResolution,"Enum value for conflict resolution strategy: newest_wins, google_wins, crm_wins, or manual, defaults to 'newest_wins'."
+ContactSyncConfigs,deletionHandling,"Enum value for deletion handling: soft_delete, hard_delete, or skip, defaults to 'soft_delete'."
+ContactSyncConfigs,fieldMapping,Longtext field storing field mapping configuration between CRM and provider, can be NULL.
+ContactSyncConfigs,syncStats,Longtext field storing sync statistics, can be NULL.
+ContactSyncConfigs,createdAt,Timestamp when this record was created.
+ContactSyncConfigs,updatedAt,Timestamp when this record was last modified.
+ContactSyncHistories,syncHistoryId,Unique numeric primary key for sync history record.
+ContactSyncHistories,syncConfigId,Numeric identifier of the sync configuration used for this sync.
+ContactSyncHistories,masterUserID,Numeric identifier of the user who performed this sync.
+ContactSyncHistories,syncType,"Enum value indicating sync trigger: manual, auto, or scheduled, defaults to 'manual'."
+ContactSyncHistories,syncDirection,Enum value indicating the direction of this sync.
+ContactSyncHistories,status,"Enum value indicating sync status: in_progress, completed, failed, or partial, defaults to 'in_progress'."
+ContactSyncHistories,startedAt,Timestamp when the sync started.
+ContactSyncHistories,completedAt,Timestamp when the sync completed, can be NULL.
+ContactSyncHistories,duration,Numeric duration of the sync in seconds, can be NULL.
+ContactSyncHistories,totalContacts,Numeric total number of contacts processed, defaults to 0.
+ContactSyncHistories,createdInCRM,Numeric count of contacts created in CRM, defaults to 0.
+ContactSyncHistories,updatedInCRM,Numeric count of contacts updated in CRM, defaults to 0.
+ContactSyncHistories,deletedInCRM,Numeric count of contacts deleted in CRM, defaults to 0.
+ContactSyncHistories,createdInGoogle,Numeric count of contacts created in Google, defaults to 0.
+ContactSyncHistories,updatedInGoogle,Numeric count of contacts updated in Google, defaults to 0.
+ContactSyncHistories,deletedInGoogle,Numeric count of contacts deleted in Google, defaults to 0.
+ContactSyncHistories,skipped,Numeric count of contacts skipped during sync, defaults to 0.
+ContactSyncHistories,conflicts,Numeric count of conflicts encountered, defaults to 0.
+ContactSyncHistories,errors,Numeric count of errors encountered, defaults to 0.
+ContactSyncHistories,errorDetails,Longtext field storing detailed error information, can be NULL.
+ContactSyncHistories,summary,Text field storing sync summary, can be NULL.
+ContactSyncHistories,detailedLog,Longtext field storing detailed sync log, can be NULL.
+ContactSyncHistories,createdAt,Timestamp when this record was created.
+ContactSyncHistories,updatedAt,Timestamp when this record was last modified.
+ContactSyncMappings,mappingId,Unique numeric primary key for contact sync mapping.
+ContactSyncMappings,masterUserID,Numeric identifier of the user who owns this mapping.
+ContactSyncMappings,personId,Numeric identifier of the CRM person record.
+ContactSyncMappings,googleContactId,String identifier of the Google Contact.
+ContactSyncMappings,googleResourceName,String resource name of the Google Contact, can be NULL.
+ContactSyncMappings,googleEtag,String ETag value for Google Contact version tracking, can be NULL.
+ContactSyncMappings,lastSyncedAt,Timestamp when this contact was last synced, can be NULL.
+ContactSyncMappings,crmUpdatedAt,Timestamp when the CRM record was last updated, can be NULL.
+ContactSyncMappings,googleUpdatedAt,Timestamp when the Google Contact was last updated, can be NULL.
+ContactSyncMappings,syncStatus,"Enum value indicating sync status: synced, pending, conflict, or error, defaults to 'synced'."
+ContactSyncMappings,isDeleted,Boolean flag whether this mapping is soft-deleted, defaults to 0.
+ContactSyncMappings,deletedAt,Timestamp when this mapping was deleted, can be NULL.
+ContactSyncMappings,createdAt,Timestamp when this record was created.
+ContactSyncMappings,updatedAt,Timestamp when this record was last modified.
+Countries,countryID,Unique numeric primary key for country.
+Countries,createdBy,String name of the user who created this record.
+Countries,createdById,Numeric identifier of the user who created this record.
+Countries,mode,String indicating operation mode context, can be NULL.
+Countries,creationDate,Timestamp when this country record was created.
+Countries,countryName,Name of the country.
+Countries,isoCode,ISO code of the country.
+Countries,createdAt,Timestamp when this record was created.
+Countries,updatedAt,Timestamp when this record was last modified.
+Currencies,currencyId,Unique numeric primary key for currency.
+Currencies,currency_desc,Description of the currency.
+Currencies,symbol,"Currency symbol such as $, €, or ₹."
+Currencies,decimalPoints,Number of decimal places for this currency, defaults to 2.
+Currencies,code,"ISO currency code such as USD, EUR, or INR."
+Currencies,isActive,Boolean flag whether this currency is active, defaults to 1.
+Currencies,isCustom,Boolean flag whether this is a custom currency, defaults to 0.
+Currencies,createdBy,String name of the user who created this record.
+Currencies,createdById,Numeric identifier of the user who created this record.
+Currencies,mode,String indicating operation mode context, can be NULL.
+Currencies,creationDate,Timestamp when this currency record was created.
+Currencies,createdAt,Timestamp when this record was created.
+Currencies,updatedAt,Timestamp when this record was last modified.
+CustomFields,fieldId,Unique numeric primary key for custom field definition.
+CustomFields,fieldName,Internal name of the custom field.
+CustomFields,fieldLabel,Display label of the custom field shown to users.
+CustomFields,fieldType,Enum value defining the field data type, defaults to 'text'.
+CustomFields,fieldSource,"Enum value indicating field origin: custom, default, or system, defaults to 'custom'."
+CustomFields,entityType,"Enum value specifying which entity this field applies to, such as lead, deal, person, organization, or activity."
+CustomFields,entityScope,Longtext field defining entity scope restrictions, can be NULL.
+CustomFields,options,Longtext field storing selectable options for dropdown fields, can be NULL.
+CustomFields,validationRules,Longtext field storing validation rule definitions, can be NULL.
+CustomFields,defaultValue,Text field storing default value for this field, can be NULL.
+CustomFields,isRequired,Boolean flag whether this field is required, defaults to 0.
+CustomFields,isActive,Boolean flag whether this field is active, defaults to 1.
+CustomFields,displayOrder,Numeric order for displaying this field relative to others, defaults to 0.
+CustomFields,isImportant,Boolean flag whether this field is marked as important, defaults to 0.
+CustomFields,category,Category grouping for this field, defaults to 'Ungrouped custom fields'.
+CustomFields,fieldGroup,Group name for organizing related fields, can be NULL.
+CustomFields,isCollapsible,Boolean flag whether this field group is collapsible in UI, defaults to 1.
+CustomFields,isSystemField,Boolean flag whether this is a system field, defaults to 0.
+CustomFields,description,Text description of what this field is used for, can be NULL.
+CustomFields,masterUserID,Numeric identifier of the user who owns this custom field.
+CustomFields,showInAddView,Boolean flag whether to show this field in add/create view, defaults to 0.
+CustomFields,showInDetailView,Boolean flag whether to show this field in detail view, defaults to 0.
+CustomFields,showInListView,Boolean flag whether to show this field in list view, defaults to 0.
+CustomFields,check,Boolean flag for internal use, defaults to 0.
+CustomFields,dealCheck,Boolean flag specific to deal entity, defaults to 0.
+CustomFields,leadView,Boolean flag whether this field appears in lead view, defaults to 0.
+CustomFields,dealView,Boolean flag whether this field appears in deal view, defaults to 0.
+CustomFields,placesWhereShown,Longtext field defining where this field is displayed, can be NULL.
+CustomFields,userSpecifications,Longtext field storing user-specific specifications, can be NULL.
+CustomFields,pipelineRestrictions,Longtext field defining pipeline restrictions for this field, can be NULL.
+CustomFields,qualityRules,Longtext field storing quality rule definitions, can be NULL.
+CustomFields,sortOrder,Numeric sort order for this field, can be NULL.
+CustomFields,createdAt,Timestamp when this record was created, can be NULL.
+CustomFields,updatedAt,Timestamp when this record was last modified, can be NULL.
+CustomFieldValues,valueId,Unique numeric primary key for custom field value record.
+CustomFieldValues,fieldId,Numeric identifier of the custom field this value belongs to.
+CustomFieldValues,entityId,Numeric identifier of the entity this value is attached to.
+CustomFieldValues,entityType,"Enum value indicating the entity type: lead, deal, person, organization, or activity."
+CustomFieldValues,value,Text field storing the actual value of the custom field, can be NULL.
+CustomFieldValues,masterUserID,Numeric identifier of the user who owns this custom field value.
+CustomFieldValues,createdAt,Timestamp when this record was created, can be NULL.
+CustomFieldValues,updatedAt,Timestamp when this record was last modified, can be NULL.
+Dashboards,dashboardId,Unique numeric primary key for dashboard.
+Dashboards,name,Name or title of the dashboard.
+Dashboards,folder,Folder name where the dashboard is stored, can be NULL.
+Dashboards,type,Type of dashboard, defaults to 'dashboard'.
+Dashboards,parentId,Numeric identifier of parent dashboard, can be NULL.
+Dashboards,ownerId,Numeric identifier of the user who owns this dashboard.
+Dashboards,coordinates,Longtext field storing dashboard layout coordinates, can be NULL.
+Dashboards,createdAt,Timestamp when this record was created.
+Dashboards,updatedAt,Timestamp when this record was last modified.
+DealColumns,id,Unique numeric primary key.
+DealColumns,masterUserID,Numeric user identifier who owns these column preferences, can be NULL.
+DealColumns,columns,Longtext field storing column visibility and display order preferences.
+DealColumns,createdAt,Timestamp when this record was created.
+DealColumns,updatedAt,Timestamp when this record was last modified.
+DealDetails,dealDetailsId,Unique numeric primary key for deal detail record.
+DealDetails,dealId,Numeric identifier of the deal this detail belongs to.
+DealDetails,statusSummary,Brief summary of deal status, can be NULL.
+DealDetails,responsiblePerson,Name of the person responsible for this deal, can be NULL.
+DealDetails,rfpReceivedDate,Timestamp when RFP was received, can be NULL.
+DealDetails,ownerName,Name of the deal owner, can be NULL.
+DealDetails,wonTime,Timestamp when the deal was marked as won, can be NULL.
+DealDetails,lostTime,Timestamp when the deal was marked as lost, can be NULL.
+DealDetails,scopeOfServiceType,Type of service scope for this deal, can be NULL.
+DealDetails,countryOfOrganizationCountry,Country of the organization associated with this deal, can be NULL.
+DealDetails,lostReason,Reason why the deal was lost, can be NULL.
+DealDetails,dealClosedOn,Timestamp when the deal was closed, can be NULL.
+DealDetails,nextActivityDate,Timestamp of the next scheduled activity for this deal, can be NULL.
+DealDetails,stateAndCountryProjectLocation,"State and country location of the project, can be NULL."
+DealDetails,createdAt,Timestamp when this record was created.
+DealDetails,updatedAt,Timestamp when this record was last modified.
+DealFiles,fileId,Unique numeric primary key for deal file record.
+DealFiles,dealId,Numeric identifier of the deal this file belongs to.
+DealFiles,fileName,Original name of the file.
+DealFiles,fileDisplayName,Display name shown to users for this file, can be NULL.
+DealFiles,filePath,Storage path or URL where the file is located.
+DealFiles,fileSize,Size of the file in bytes.
+DealFiles,mimeType,MIME type of the file.
+DealFiles,fileExtension,"File extension such as .pdf or .docx, can be NULL."
+DealFiles,fileCategory,"Enum value categorizing the file type, defaults to 'document'."
+DealFiles,description,Text description of the file content, can be NULL.
+DealFiles,tags,Longtext field storing tags associated with the file, can be NULL.
+DealFiles,isPublic,Boolean flag whether the file is publicly accessible, defaults to 0.
+DealFiles,uploadedBy,Numeric identifier of the user who uploaded this file.
+DealFiles,lastAccessedAt,Timestamp when the file was last accessed, can be NULL.
+DealFiles,downloadCount,Numeric count of how many times the file was downloaded, defaults to 0.
+DealFiles,version,Numeric version number of this file, defaults to 1.
+DealFiles,previousVersionId,Numeric identifier of the previous version of this file, can be NULL.
+DealFiles,isActive,Boolean flag whether this file record is active, defaults to 1.
+DealFiles,masterUserID,Numeric identifier of the user who owns this file record.
+DealFiles,createdAt,Timestamp when this record was created, can be NULL.
+DealFiles,updatedAt,Timestamp when this record was last modified, can be NULL.
+DealNotes,noteId,Unique numeric primary key for deal note record.
+DealNotes,dealId,Numeric identifier of the deal this note belongs to.
+DealNotes,content,Text content of the note.
+DealNotes,createdBy,Numeric identifier of the user who created this note.
+DealNotes,createdAt,Timestamp when this record was created, can be NULL.
+DealNotes,updatedAt,Timestamp when this record was last modified, can be NULL.
+DealParticipants,participantId,Unique numeric primary key for deal participant record.
+DealParticipants,dealId,Numeric identifier of the deal this participant is associated with.
+DealParticipants,personId,Numeric identifier of the person participant, can be NULL.
+DealParticipants,leadOrganizationId,Numeric identifier of the organization participant, can be NULL.
+DealProducts,dealProductId,Unique numeric primary key for deal-product association.
+DealProducts,dealId,Numeric identifier of the deal this product is associated with.
+DealProducts,productId,Numeric identifier of the product.
+DealProducts,variationId,Numeric identifier of the product variation, can be NULL.
+DealProducts,quantity,Decimal quantity of the product, defaults to 1.00.
+DealProducts,unitPrice,Decimal unit price of the product.
+DealProducts,currency,Currency code for pricing, defaults to 'INR'.
+DealProducts,discountType,"Enum value indicating discount type: percentage or fixed, can be NULL."
+DealProducts,discountValue,Decimal discount value, defaults to 0.00.
+DealProducts,discountAmount,Decimal computed discount amount, defaults to 0.00.
+DealProducts,taxType,"Enum value indicating tax treatment: tax-exclusive, tax-inclusive, or no-tax, defaults to 'tax-exclusive'."
+DealProducts,taxPercentage,Decimal tax percentage, defaults to 0.00.
+DealProducts,taxAmount,Decimal computed tax amount, defaults to 0.00.
+DealProducts,subtotal,Decimal subtotal before tax and discount, can be NULL.
+DealProducts,total,Decimal total amount after all calculations, can be NULL.
+DealProducts,billingFrequency,"Enum value for billing frequency: one-time, monthly, quarterly, semi-annually, annually, or custom, defaults to 'one-time'."
+DealProducts,billingStartDate,Timestamp when billing starts, can be NULL.
+DealProducts,billingEndDate,Timestamp when billing ends, can be NULL.
+DealProducts,notes,Text notes about this product line item, can be NULL.
+DealProducts,sortOrder,Numeric order of this product within the deal, defaults to 0.
+DealProducts,createdAt,Timestamp when this record was created.
+DealProducts,updatedAt,Timestamp when this record was last modified.
+Deals,dealId,Unique numeric primary key for deal record.
+Deals,leadId,Numeric identifier of the associated lead, can be NULL.
+Deals,personId,Numeric identifier of the associated person, can be NULL.
+Deals,leadOrganizationId,Numeric identifier of the associated organization, can be NULL.
+Deals,contactPerson,Name of the contact person for this deal, can be NULL.
+Deals,organization,Name of the organization for this deal, can be NULL.
+Deals,title,Title or name of the deal.
+Deals,value,"Decimal value or amount of the deal, can be NULL."
+Deals,currency,Currency code for the deal value, can be NULL.
+Deals,pipeline,Name of the pipeline this deal belongs to, can be NULL.
+Deals,pipelineStage,Name of the current pipeline stage, can be NULL.
+Deals,pipelineId,Numeric identifier of the pipeline, can be NULL.
+Deals,stageId,Numeric identifier of the current stage, can be NULL.
+Deals,label,"Label or tag associated with the deal, can be NULL."
+Deals,expectedCloseDate,Timestamp when the deal is expected to close, can be NULL.
+Deals,sourceChannel,Source channel of the deal, can be NULL.
+Deals,sourceChannelId,Identifier of the source channel, can be NULL.
+Deals,serviceType,Type of service for this deal, can be NULL.
+Deals,proposalValue,"Decimal value of the proposal, can be NULL."
+Deals,proposalCurrency,Currency code for the proposal value, can be NULL.
+Deals,esplProposalNo,Proposal number from ESPL system, can be NULL.
+Deals,projectLocation,Location of the project, can be NULL.
+Deals,organizationCountry,Country of the organization, can be NULL.
+Deals,proposalSentDate,Timestamp when the proposal was sent, can be NULL.
+Deals,sourceRequired,Indicator whether source is required, can be NULL.
+Deals,questionerShared,Indicator whether questioner was shared, can be NULL.
+Deals,sectorialSector,Sector classification of the deal, can be NULL.
+Deals,sbuClass,Strategic Business Unit class, can be NULL.
+Deals,phone,Phone number associated with the deal, can be NULL.
+Deals,email,Email address associated with the deal, can be NULL.
+Deals,sourceOrgin,Origin source of the deal, can be NULL.
+Deals,masterUserID,Numeric identifier of the user who owns this deal.
+Deals,ownerId,Numeric identifier of the deal owner.
+Deals,isArchived,Boolean flag whether the deal is archived, defaults to 0.
+Deals,status,"Status of the deal such as open, won, or lost, can be NULL."
+Deals,source,Source of the deal record, can be NULL.
+Deals,productName,Name of the primary product, can be NULL.
+Deals,weightedValue,Decimal weighted value based on probability, can be NULL.
+Deals,lastStageChange,Timestamp when the stage was last changed, can be NULL.
+Deals,nextActivityDate,Timestamp of the next scheduled activity, can be NULL.
+Deals,lastActivityDate,Timestamp of the last activity, can be NULL.
+Deals,wonTime,Timestamp when the deal was won, can be NULL.
+Deals,lastEmailReceived,Timestamp of the last received email, can be NULL.
+Deals,lastEmailSent,Timestamp of the last sent email, can be NULL.
+Deals,lostTime,Timestamp when the deal was lost, can be NULL.
+Deals,dealClosedOn,Timestamp when the deal was closed, can be NULL.
+Deals,totalActivities,Numeric count of total activities, defaults to 0.
+Deals,doneActivities,Numeric count of completed activities, defaults to 0.
+Deals,activitiesToDo,Numeric count of pending activities, defaults to 0.
+Deals,emailMessagesCount,Numeric count of email messages, defaults to 0.
+Deals,productQuantity,Numeric total quantity of products, can be NULL.
+Deals,productAmount,Decimal total amount of products, can be NULL.
+Deals,MRR,Decimal Monthly Recurring Revenue, can be NULL.
+Deals,ARR,Decimal Annual Recurring Revenue, can be NULL.
+Deals,ACV,Decimal Annual Contract Value, can be NULL.
+Deals,lostReason,Reason why the deal was lost, can be NULL.
+Deals,archiveStatus,Status of archive operation, can be NULL.
+Deals,probability,Integer probability percentage of closing, defaults to 0.
+Deals,stage,Current stage name, can be NULL.
+Deals,proposalValueCurrency,Currency code for proposal value, defaults to 'INR'.
+Deals,valueCurrency,Currency code for deal value, defaults to 'INR'.
+Deals,isConvertedToLead,Boolean flag whether deal was converted to lead, defaults to 0.
+Deals,convertedToLeadAt,Timestamp when converted to lead, can be NULL.
+Deals,convertedToLeadBy,Numeric identifier of user who converted to lead, can be NULL.
+Deals,createdAt,Timestamp when this record was created, can be NULL.
+Deals,updatedAt,Timestamp when this record was last modified, can be NULL.
+Deals,isDummyData,Boolean flag indicating whether this is test data.
+Deals,visibilityGroupId,Numeric identifier of visibility group, can be NULL.
+DealStageHistories,dealsStageId,Unique numeric primary key for deal stage history record.
+DealStageHistories,dealId,Numeric identifier of the deal this stage change belongs to.
+DealStageHistories,stageName,Name of the stage entered.
+DealStageHistories,enteredAt,Timestamp when the deal entered this stage.
+DefaultEmails,id,Unique numeric primary key.
+DefaultEmails,masterUserID,Numeric identifier of the user who owns this default email setting.
+DefaultEmails,email,Email address of the default sender account.
+DefaultEmails,appPassword,Application password for the email account.
+DefaultEmails,senderName,Display name of the sender, can be NULL.
+DefaultEmails,isDefault,Boolean flag whether this is the default email account, defaults to 0.
+DefaultEmails,provider,Email provider name, can be NULL.
+DefaultEmails,createdAt,Timestamp when this record was created.
+DefaultEmails,updatedAt,Timestamp when this record was last modified.
+Departments,departmentId,Unique numeric primary key for department.
+Departments,department_desc,Description or name of the department.
+Departments,createdBy,Name of the user who created this record.
+Departments,createdById,Numeric identifier of the user who created this record.
+Departments,mode,String indicating operation mode context, can be NULL.
+Departments,creationDate,Timestamp when this department record was created.
+Departments,createdAt,Timestamp when this record was created.
+Departments,updatedAt,Timestamp when this record was last modified.
+Designations,designationId,Unique numeric primary key for designation.
+Designations,designation_desc,Description or name of the job designation.
+Designations,createdBy,Name of the user who created this record.
+Designations,createdById,Numeric identifier of the user who created this record.
+Designations,mode,String indicating operation mode context, can be NULL.
+Designations,creationDate,Timestamp when this designation record was created.
+Designations,createdAt,Timestamp when this record was created.
+Designations,updatedAt,Timestamp when this record was last modified.
+DeviceActivities,id,Unique numeric primary key.
+DeviceActivities,device,"Name or identifier of the device used, can be NULL."
+DeviceActivities,Location,Geographic location of the device, can be NULL.
+DeviceActivities,ipAddress,IP address of the device, can be NULL.
+DeviceActivities,loginTime,"Timestamp or string of login time, can be NULL."
+DeviceActivities,loginVia,"Method used for login such as web or mobile, can be NULL."
+DeviceActivities,loginOut,"Timestamp or string of logout time, can be NULL."
+DeviceActivities,isActive,Boolean flag indicating activity status, can be NULL.
+DeviceActivities,createdAt,Timestamp when this record was created.
+DeviceActivities,updatedAt,Timestamp when this record was last modified.
+Emails,emailID,Unique numeric primary key for email record.
+Emails,messageId,Message ID header of the email, can be NULL.
+Emails,inReplyTo,Message ID this email replies to, can be NULL.
+Emails,sender,Email address of the sender.
+Emails,senderName,Display name of the sender, can be NULL.
+Emails,recipient,Longtext field storing recipient email addresses, can be NULL.
+Emails,recipientName,Longtext field storing recipient names, can be NULL.
+Emails,subject,Longtext subject line of the email, can be NULL.
+Emails,body,Longtext body content of the email, can be NULL.
+Emails,folder,"Enum value indicating email folder: inbox, drafts, outbox, sent, archive, or trash, defaults to 'inbox'."
+Emails,isRead,Boolean flag whether the email has been read, defaults to 0.
+Emails,createdAt,Timestamp when this record was created, can be NULL.
+Emails,updatedAt,Timestamp when this record was last modified, can be NULL.
+Emails,cc,Longtext field storing CC recipients, can be NULL.
+Emails,bcc,Longtext field storing BCC recipients, can be NULL.
+Emails,references,Text field storing email reference headers, can be NULL.
+Emails,masterUserID,Numeric identifier of the user who owns this email.
+Emails,draftId,Text identifier for email draft, can be NULL.
+Emails,isDraft,Boolean flag whether this is a draft email, defaults to 1.
+Emails,isOpened,Boolean flag whether the email has been opened, defaults to 0.
+Emails,isClicked,Boolean flag whether a link in the email was clicked, defaults to 0.
+Emails,tempMessageId,Temporary message identifier, can be NULL.
+Emails,scheduledAt,Timestamp when the email is scheduled to be sent, can be NULL.
+Emails,threadId,Thread identifier for email conversations, can be NULL.
+Emails,uid,Unique identifier from email server, can be NULL.
+Emails,body_fetch_status,"Enum value indicating body fetch status: pending, completed, or failed, defaults to 'pending'."
+Emails,leadId,Numeric identifier of associated lead, can be NULL.
+Emails,dealId,Numeric identifier of associated deal, can be NULL.
+Emails,visibility,"Enum value indicating email visibility: shared or private, defaults to 'shared'."
+Emails,userEmail,Email address of the user, can be NULL.
+Emails,labelId,Numeric identifier of associated label, can be NULL.
+Emails,lastError,Text field storing last error message, can be NULL.
+EmailTemplates,templateId,Unique numeric primary key for email template.
+EmailTemplates,templateName,Name of the email template.
+EmailTemplates,subject,Subject line of the template.
+EmailTemplates,body,Longtext body content of the template.
+EmailTemplates,createdBy,Numeric identifier of the user who created this template.
+EmailTemplates,createdAt,Timestamp when this record was created.
+EmailTemplates,updatedAt,Timestamp when this record was last modified.
+EntityFiles,fileId,Unique numeric primary key for entity file record.
+EntityFiles,entityId,Numeric identifier of the entity this file belongs to.
+EntityFiles,entityType,"Enum value indicating entity type: person or organization."
+EntityFiles,fileName,Original name of the file.
+EntityFiles,fileDisplayName,Display name shown to users for this file, can be NULL.
+EntityFiles,filePath,Storage path or URL where the file is located.
+EntityFiles,fileSize,Size of the file in bytes.
+EntityFiles,mimeType,MIME type of the file.
+EntityFiles,fileExtension,"File extension such as .pdf or .docx, can be NULL."
+EntityFiles,fileCategory,"Enum value categorizing the file type, defaults to 'document'."
+EntityFiles,description,Text description of the file content, can be NULL.
+EntityFiles,tags,Longtext field storing tags associated with the file, can be NULL.
+EntityFiles,isPublic,Boolean flag whether the file is publicly accessible, defaults to 0.
+EntityFiles,uploadedBy,Numeric identifier of the user who uploaded this file.
+EntityFiles,lastAccessedAt,Timestamp when the file was last accessed, can be NULL.
+EntityFiles,downloadCount,Numeric count of downloads, defaults to 0.
+EntityFiles,version,Numeric version number of this file, defaults to 1.
+EntityFiles,previousVersionId,Numeric identifier of the previous version, can be NULL.
+EntityFiles,isActive,Boolean flag whether this file record is active, defaults to 1.
+EntityFiles,masterUserID,Numeric identifier of the user who owns this file record.
+EntityFiles,createdAt,Timestamp when this record was created, can be NULL.
+EntityFiles,updatedAt,Timestamp when this record was last modified, can be NULL.
+Goals,goalId,Unique numeric primary key for goal record.
+Goals,dashboardId,Numeric identifier of the dashboard this goal belongs to, can be NULL.
+Goals,entity,"Entity type this goal applies to such as deal or lead."
+Goals,goalType,"Type or category of the goal."
+Goals,targetValue,Decimal target value to achieve.
+Goals,targetType,Type of target measurement, defaults to 'number'.
+Goals,period,"Time period for the goal such as monthly or quarterly, defaults to 'monthly'."
+Goals,startDate,Timestamp when the goal period starts.
+Goals,endDate,Timestamp when the goal period ends, can be NULL.
+Goals,description,Text description of the goal, can be NULL.
+Goals,assignee,Name of the user assigned to this goal, can be NULL.
+Goals,assignId,Identifier of the assigned user, can be NULL.
+Goals,pipeline,Pipeline name for pipeline-specific goals, can be NULL.
+Goals,pipelineStage,Pipeline stage for stage-specific goals, can be NULL.
+Goals,activityType,Activity type for activity-specific goals, can be NULL.
+Goals,trackingMetric,Metric used to track progress, defaults to 'Count'.
+Goals,count,Numeric count value for the goal, can be NULL.
+Goals,value,Decimal value for the goal, can be NULL.
+Goals,position,Numeric position for display order, defaults to 0.
+Goals,isActive,Boolean flag whether the goal is active, defaults to 1.
+Goals,ownerId,Numeric identifier of the user who owns this goal.
+Goals,colors,Longtext field storing color configuration for the goal, can be NULL.
+Goals,graphType,Type of graph to display, defaults to 'bar'.
+Goals,config,Longtext field storing additional goal configuration, can be NULL.
+Goals,createdAt,Timestamp when this record was created.
+Goals,updatedAt,Timestamp when this record was last modified.
+GroupMemberships,membershipId,Unique numeric primary key for group membership.
+GroupMemberships,groupId,Numeric identifier of the group.
+GroupMemberships,userId,Numeric identifier of the user who is a member.
+GroupMemberships,masterUserID,Numeric identifier of the user who owns this membership record.
+GroupMemberships,assignedBy,Numeric identifier of the user who assigned this membership.
+GroupMemberships,isActive,Boolean flag whether this membership is active, defaults to 1.
+GroupMemberships,joinedAt,Timestamp when the user joined the group, can be NULL.
+GroupMemberships,createdAt,Timestamp when this record was created.
+GroupMemberships,updatedAt,Timestamp when this record was last modified.
+GroupVisibilities,groupId,Unique numeric primary key for visibility group.
+GroupVisibilities,groupName,Name of the visibility group.
+GroupVisibilities,description,Text description of the group, can be NULL.
+GroupVisibilities,isDefault,Boolean flag whether this is the default group, defaults to 0.
+GroupVisibilities,isActive,Boolean flag whether this group is active, defaults to 1.
+GroupVisibilities,pipelineIds,String listing pipeline IDs associated with this group, can be NULL.
+GroupVisibilities,lead,"Enum value for lead visibility: owner, visibilitygroup, or everyone, can be NULL."
+GroupVisibilities,deal,"Enum value for deal visibility: owner, visibilitygroup, or everyone, can be NULL."
+GroupVisibilities,person,"Enum value for person visibility: owner, visibilitygroup, or everyone, can be NULL."
+GroupVisibilities,Organization,"Enum value for organization visibility: owner, visibilitygroup, or everyone, can be NULL."
+GroupVisibilities,memberIds,String listing member user IDs, can be NULL.
+GroupVisibilities,parentGroupId,Numeric identifier of parent group, can be NULL.
+GroupVisibilities,createdBy,Numeric identifier of the user who created this group, can be NULL.
+GroupVisibilities,createdAt,Timestamp when this record was created.
+GroupVisibilities,updatedAt,Timestamp when this record was last modified.
+GroupVisibilities,personId,Numeric identifier of person, can be NULL.
+GroupVisibilities,leadOrganizationId,Numeric identifier of lead organization, can be NULL.
+GroupVisibilities,leadId,Numeric identifier of lead, can be NULL.
+GroupVisibilities,dealId,Numeric identifier of deal, can be NULL.
+GroupVisibilities,pipelineId,Numeric identifier of pipeline, can be NULL.
+Histories,id,Unique numeric primary key.
+Histories,programId,Numeric identifier of the program.
+Histories,mode,String indicating operation mode.
+Histories,createdById,Numeric identifier of the user who created this history record, can be NULL.
+Histories,recordId,Numeric identifier of the changed record, can be NULL.
+Histories,modifiedBy,Numeric identifier of the user who made the modification, can be NULL.
+Histories,description,Text description of the change, can be NULL.
+Histories,changes,Longtext field storing details of field-level changes, can be NULL.
+Histories,timestamp,Timestamp of the change event, can be NULL.
+Histories,createdAt,Timestamp when this record was created.
+Histories,updatedAt,Timestamp when this record was last modified.
+ImportDatas,importId,Unique numeric primary key for import session.
+ImportDatas,masterUserID,Numeric identifier of the user who performed the import.
+ImportDatas,sessionId,String session identifier for this import.
+ImportDatas,originalFileName,Original name of the uploaded file.
+ImportDatas,filePath,Storage path of the uploaded file.
+ImportDatas,fileSize,Size of the file in bytes, can be NULL.
+ImportDatas,fileType,"Enum value indicating file type: csv, xlsx, or xls."
+ImportDatas,entityType,"Enum value indicating entity type being imported, such as lead, deal, person, organization, or activity."
+ImportDatas,columnMapping,Longtext field storing column mapping configuration, can be NULL.
+ImportDatas,importOptions,Longtext field storing import option settings, can be NULL.
+ImportDatas,totalRows,Numeric total number of rows in the file, can be NULL.
+ImportDatas,validRows,Numeric count of valid rows, can be NULL.
+ImportDatas,invalidRows,Numeric count of invalid rows, can be NULL.
+ImportDatas,status,"Enum value indicating import status: uploaded, analyzing, mapping, validating, importing, completed, failed, or cancelled, defaults to 'uploaded'."
+ImportDatas,progress,Decimal percentage of import progress, defaults to 0.00.
+ImportDatas,processedRows,Numeric count of processed rows, defaults to 0.
+ImportDatas,successfulImports,Numeric count of successfully imported records, defaults to 0.
+ImportDatas,failedImports,Numeric count of failed imports, defaults to 0.
+ImportDatas,duplicatesSkipped,Numeric count of duplicate records skipped, defaults to 0.
+ImportDatas,errorLog,Longtext field storing error log, can be NULL.
+ImportDatas,validationErrors,Longtext field storing validation error details, can be NULL.
+ImportDatas,errorFilePath,Storage path for error file, can be NULL.
+ImportDatas,startedAt,Timestamp when import started, can be NULL.
+ImportDatas,completedAt,Timestamp when import completed, can be NULL.
+ImportDatas,previewData,Longtext field storing preview of imported data, can be NULL.
+ImportDatas,columnHeaders,Longtext field storing column header information, can be NULL.
+ImportDatas,createdAt,Timestamp when this record was created.
+ImportDatas,updatedAt,Timestamp when this record was last modified.
+ItemVisibilityRules,ruleId,Unique numeric primary key for visibility rule.
+ItemVisibilityRules,groupId,Numeric identifier of the group this rule applies to.
+ItemVisibilityRules,entityType,"Enum value indicating entity type: leads, deals, people, organizations, products, or activities."
+ItemVisibilityRules,masterUserID,Numeric identifier of the user who owns this rule.
+ItemVisibilityRules,defaultVisibility,"Enum value for default visibility, defaults to 'item_owners_visibility_group'."
+ItemVisibilityRules,canCreate,Boolean flag whether group can create items, defaults to 1.
+ItemVisibilityRules,canView,Boolean flag whether group can view items, defaults to 1.
+ItemVisibilityRules,canEdit,Boolean flag whether group can edit items, defaults to 1.
+ItemVisibilityRules,canDelete,Boolean flag whether group can delete items, defaults to 0.
+ItemVisibilityRules,canExport,Boolean flag whether group can export items, defaults to 0.
+ItemVisibilityRules,canBulkEdit,Boolean flag whether group can bulk edit items, defaults to 0.
+ItemVisibilityRules,isActive,Boolean flag whether this rule is active, defaults to 1.
+ItemVisibilityRules,createdBy,Numeric identifier of the user who created this rule.
+ItemVisibilityRules,updatedBy,Numeric identifier of the user who last updated this rule, can be NULL.
+ItemVisibilityRules,createdAt,Timestamp when this record was created.
+ItemVisibilityRules,updatedAt,Timestamp when this record was last modified.
+Labels,labelId,Unique numeric primary key for label.
+Labels,labelName,Name of the label.
+Labels,labelColor,Color code for the label, defaults to '#007bff'.
+Labels,entityType,"Enum value indicating which entity types this label applies to, such as lead, deal, person, organization, or all, defaults to 'all'."
+Labels,description,Text description of the label, can be NULL.
+Labels,isActive,Boolean flag whether this label is active, defaults to 1.
+Labels,createdBy,Name of the user who created this label.
+Labels,createdById,Numeric identifier of the user who created this label.
+Labels,updatedBy,Name of the user who last updated this label, can be NULL.
+Labels,updatedById,Numeric identifier of the user who last updated this label, can be NULL.
+Labels,mode,String indicating operation mode context, can be NULL.
+Labels,creationDate,Timestamp when this label was created.
+Labels,updatedDate,Timestamp when this label was last updated, can be NULL.
+Labels,createdAt,Timestamp when this record was created.
+Labels,updatedAt,Timestamp when this record was last modified.
+LeadColumnPreferences,id,Unique numeric primary key.
+LeadColumnPreferences,masterUserID,Numeric user identifier who owns these column preferences, can be NULL.
+LeadColumnPreferences,columns,Longtext field storing column visibility and display order preferences.
+LeadColumnPreferences,createdAt,Timestamp when this record was created.
+LeadColumnPreferences,updatedAt,Timestamp when this record was last modified.
+LeadColumns,leadColumnId,Unique numeric primary key for lead column definition.
+LeadColumns,leadColumn_desc,Description of the lead column.
+LeadColumns,createdBy,Name of the user who created this column.
+LeadColumns,createdById,Numeric identifier of the user who created this column.
+LeadColumns,mode,String indicating operation mode context, can be NULL.
+LeadColumns,creationDate,Timestamp when this column was created.
+LeadColumns,createdAt,Timestamp when this record was created.
+LeadColumns,updatedAt,Timestamp when this record was last modified.
+LeadDetails,leadDetailsId,Unique numeric primary key for lead detail record.
+LeadDetails,leadId,Numeric identifier of the lead this detail belongs to.
+LeadDetails,RFP_receivedDate,Timestamp when RFP was received, can be NULL.
+LeadDetails,statusSummary,Brief summary of lead status, can be NULL.
+LeadDetails,responsibleId,Numeric identifier of the responsible person, can be NULL.
+LeadDetails,responsiblePerson,Name of the person responsible for this lead, can be NULL.
+LeadDetails,organizationName,Name of the organization associated with this lead, can be NULL.
+LeadDetails,source,Source of the lead, can be NULL.
+LeadDetails,sourceOrgin,Origin source of the lead, can be NULL.
+LeadDetails,personName,Name of the contact person, can be NULL.
+LeadDetails,notes,Text notes about the lead, can be NULL.
+LeadDetails,postalAddress,Postal address of the lead, can be NULL.
+LeadDetails,birthday,Timestamp of the contact's birthday, can be NULL.
+LeadDetails,jobTitle,Job title of the contact person, can be NULL.
+LeadDetails,sourceOriginID,Identifier of the source origin, can be NULL.
+LeadDetails,currency,Currency code for lead values, can be NULL.
+LeadDetails,nextActivityDate,Timestamp of the next scheduled activity, can be NULL.
+LeadDetails,nextActivityStatus,Status of the next scheduled activity, can be NULL.
+LeadDetails,address,Physical address of the lead, can be NULL.
+LeadDetails,createdAt,Timestamp when this record was created.
+LeadDetails,updatedAt,Timestamp when this record was last modified.
+LeadFilters,filterId,Unique numeric primary key for lead filter.
+LeadFilters,filterName,Name of the saved filter.
+LeadFilters,filterConfig,Longtext field storing filter configuration criteria.
+LeadFilters,visibility,Visibility setting of the filter, defaults to 'Private'.
+LeadFilters,masterUserID,Numeric identifier of the user who owns this filter.
+LeadFilters,columns,Longtext field storing column preferences for this filter, can be NULL.
+LeadFilters,filterEntityType,"Enum value indicating entity type this filter applies to, such as lead, deal, person, organization, activity, or product, defaults to 'lead'."
+LeadFilters,isFavorite,Boolean flag whether this filter is marked as favorite, defaults to 0.
+LeadFilters,createdAt,Timestamp when this record was created.
+LeadFilters,updatedAt,Timestamp when this record was last modified.
+LeadNotes,noteId,Unique numeric primary key for lead note record.
+LeadNotes,leadId,Numeric identifier of the lead this note belongs to.
+LeadNotes,masterUserID,Numeric identifier of the user who owns this note.
+LeadNotes,content,Longtext content of the note.
+LeadNotes,createdBy,Numeric identifier of the user who created this note.
+LeadNotes,createdAt,Timestamp when this record was created.
+LeadNotes,updatedAt,Timestamp when this record was last modified.
+LeadOrganizations,leadOrganizationId,Unique numeric primary key for lead organization.
+LeadOrganizations,organization,Name of the organization.
+LeadOrganizations,organizationLabels,Labels associated with the organization, can be NULL.
+LeadOrganizations,address,Physical address of the organization, can be NULL.
+LeadOrganizations,visibleTo,Visibility setting for this organization, can be NULL.
+LeadOrganizations,masterUserID,Numeric identifier of the user who owns this organization record.
+LeadOrganizations,ownerId,Numeric identifier of the organization owner, can be NULL.
+LeadOrganizations,ownerName,Name of the organization owner, can be NULL.
+LeadOrganizations,wonDeals,Numeric count of won deals associated with this organization, defaults to 0.
+LeadOrganizations,lostDeals,Numeric count of lost deals associated with this organization, defaults to 0.
+LeadOrganizations,openDeals,Numeric count of open deals associated with this organization, defaults to 0.
+LeadOrganizations,peopleCount,Numeric count of people associated with this organization, defaults to 0.
+LeadOrganizations,lastActivityDate,Timestamp of the last activity, can be NULL.
+LeadOrganizations,nextActivityDate,Timestamp of the next scheduled activity, can be NULL.
+LeadOrganizations,doneActivitiesCount,Numeric count of completed activities, defaults to 0.
+LeadOrganizations,totalActivitiesCount,Numeric count of total activities, defaults to 0.
+LeadOrganizations,activitiesTodoCount,Numeric count of pending activities, defaults to 0.
+LeadOrganizations,createdAt,Timestamp when this record was created.
+LeadOrganizations,updatedAt,Timestamp when this record was last modified.
+LeadPersons,personId,Unique numeric primary key for lead person.
+LeadPersons,leadOrganizationId,Numeric identifier of the organization this person belongs to, can be NULL.
+LeadPersons,contactPerson,Name of the contact person, can be NULL.
+LeadPersons,email,Email address of the person, can be NULL.
+LeadPersons,phone,Phone number of the person, can be NULL.
+LeadPersons,notes,Text notes about the person, can be NULL.
+LeadPersons,postalAddress,Postal address of the person, can be NULL.
+LeadPersons,birthday,Timestamp of the person's birthday, can be NULL.
+LeadPersons,jobTitle,Job title of the person, can be NULL.
+LeadPersons,personLabels,Labels associated with the person, can be NULL.
+LeadPersons,organization,Name of the organization, can be NULL.
+LeadPersons,masterUserID,Numeric identifier of the user who owns this person record.
+LeadPersons,ownerId,Numeric identifier of the person record owner, can be NULL.
+LeadPersons,emails,Longtext field storing multiple email addresses, can be NULL.
+LeadPersons,phones,Longtext field storing multiple phone numbers, can be NULL.
+LeadPersons,ownerName,Name of the record owner, can be NULL.
+LeadPersons,wonDeals,Numeric count of won deals associated with this person, defaults to 0.
+LeadPersons,lostDeals,Numeric count of lost deals associated with this person, defaults to 0.
+LeadPersons,openDeals,Numeric count of open deals associated with this person, defaults to 0.
+LeadPersons,peopleCount,Numeric count of associated people, defaults to 0.
+LeadPersons,lastActivityDate,Timestamp of the last activity, can be NULL.
+LeadPersons,nextActivityDate,Timestamp of the next scheduled activity, can be NULL.
+LeadPersons,doneActivitiesCount,Numeric count of completed activities, defaults to 0.
+LeadPersons,totalActivitiesCount,Numeric count of total activities, defaults to 0.
+LeadPersons,activitiesTodoCount,Numeric count of pending activities, defaults to 0.
+LeadPersons,marketingStatus,"Enum value for marketing subscription status: Subscribed, Unsubscribed, or Archived, defaults to 'Subscribed'."
+LeadPersons,createdAt,Timestamp when this record was created.
+LeadPersons,updatedAt,Timestamp when this record was last modified.
+Leads,leadId,Unique numeric primary key for lead record.
+Leads,personId,Numeric identifier of the associated person, can be NULL.
+Leads,leadOrganizationId,Numeric identifier of the associated organization, can be NULL.
+Leads,contactPerson,Name of the contact person, can be NULL.
+Leads,organization,Name of the organization, can be NULL.
+Leads,title,Title or name of the lead, can be NULL.
+Leads,valueLabels,Labels for lead value, can be NULL.
+Leads,expectedCloseDate,Timestamp when the lead is expected to close, can be NULL.
+Leads,sourceChannel,Source channel of the lead, can be NULL.
+Leads,sourceChannelID,Identifier of the source channel, can be NULL.
+Leads,serviceType,Type of service requested, can be NULL.
+Leads,scopeOfServiceType,Scope of service type, can be NULL.
+Leads,phone,Phone number associated with the lead, can be NULL.
+Leads,email,Email address associated with the lead, can be NULL.
+Leads,company,Company name associated with the lead, can be NULL.
+Leads,proposalValue,Decimal value of the proposal, can be NULL.
+Leads,esplProposalNo,Proposal number from ESPL system, can be NULL.
+Leads,projectLocation,Location of the project, can be NULL.
+Leads,organizationCountry,Country of the organization, can be NULL.
+Leads,proposalSentDate,Timestamp when proposal was sent, can be NULL.
+Leads,status,Current status of the lead, can be NULL.
+Leads,masterUserID,Numeric identifier of the user who owns this lead.
+Leads,isArchived,Boolean flag whether the lead is archived, defaults to 0.
+Leads,archiveTime,Timestamp when the lead was archived, can be NULL.
+Leads,questionShared,Boolean flag whether questioner was shared, defaults to 0.
+Leads,ownerId,Numeric identifier of the lead owner, can be NULL.
+Leads,ownerName,Name of the lead owner, can be NULL.
+Leads,createdAt,Timestamp when this record was created, can be NULL.
+Leads,updatedAt,Timestamp when this record was last modified, can be NULL.
+Leads,SBUClass,Strategic Business Unit class, can be NULL.
+Leads,numberOfReportsPrepared,Numeric count of reports prepared, can be NULL.
+Leads,sectoralSector,Sector classification, can be NULL.
+Leads,seen,Boolean flag whether the lead has been viewed, defaults to 0.
+Leads,visibleTo,Visibility setting for this lead, can be NULL.
+Leads,sourceOrigin,Origin source of the lead, can be NULL.
+Leads,dealId,Numeric identifier of associated deal, can be NULL.
+Leads,sourceOriginID,Identifier of the source origin, can be NULL.
+Leads,leadQuality,Quality rating of the lead, can be NULL.
+Leads,isQualified,Boolean flag whether the lead is qualified, defaults to 0.
+Leads,qualificationDate,Timestamp when the lead was qualified, can be NULL.
+Leads,conversionDate,Timestamp when the lead was converted, can be NULL.
+Leads,value,Decimal value of the lead, can be NULL.
+Leads,proposalValueCurrency,Currency code for proposal value, defaults to 'INR'.
+Leads,valueCurrency,Currency code for lead value, defaults to 'INR'.
+Leads,visibilityLevel,"Enum value for visibility level, defaults to 'item_owners_visibility_group'."
+Leads,visibilityGroupId,Numeric identifier of visibility group, can be NULL.
+Leads,visibleGroup,Name of the visible group, can be NULL.
+Leads,isDeleted,Boolean flag whether the lead is deleted, can be NULL.
+Leads,deletedAt,Timestamp when the lead was deleted, can be NULL.
+Leads,isDummyData,Boolean flag indicating whether this is test data.
+Leads,deletedBy,Numeric identifier of the user who deleted this lead, can be NULL.
+LoginHistories,id,Unique numeric primary key.
+LoginHistories,userId,Numeric identifier of the user who logged in.
+LoginHistories,device,"Name or identifier of the device used, can be NULL."
+LoginHistories,location,Geographic location of the login, can be NULL.
+LoginHistories,loginTime,Timestamp when the login occurred, can be NULL.
+LoginHistories,ipAddress,IP address of the login request, can be NULL.
+LoginHistories,longitude,Longitude coordinate of the login location, can be NULL.
+LoginHistories,latitude,Latitude coordinate of the login location, can be NULL.
+LoginHistories,loginType,"Enum value indicating user type: admin, general, or master."
+LoginHistories,logoutTime,Timestamp when the user logged out, can be NULL.
+LoginHistories,duration,String representation of session duration, can be NULL.
+LoginHistories,username,Username of the user who logged in, can be NULL.
+LoginHistories,totalSessionDuration,String representation of total session time, can be NULL.
+LoginHistories,isActive,Boolean flag whether this session is active, defaults to 1.
+LoginHistories,createdAt,Timestamp when this record was created.
+LoginHistories,updatedAt,Timestamp when this record was last modified.
+LostReasons,lostReasonId,Unique numeric primary key for lost reason.
+LostReasons,reason,Name or description of the lost reason.
+LostReasons,description,Text description of the lost reason, can be NULL.
+LostReasons,isActive,Boolean flag whether this reason is active, defaults to 1.
+LostReasons,sortOrder,Numeric order for displaying this reason, defaults to 0.
+LostReasons,masterUserID,Numeric identifier of the user who owns this reason, can be NULL.
+LostReasons,isSystemDefault,Boolean flag whether this is a system default reason, defaults to 0.
+LostReasons,createdAt,Timestamp when this record was created.
+LostReasons,updatedAt,Timestamp when this record was last modified.
+LostReasonSettings,settingId,Unique numeric primary key for lost reason settings.
+LostReasonSettings,masterUserID,Numeric identifier of the user these settings belong to, can be NULL.
+LostReasonSettings,allowFreeFormReasons,Boolean flag whether free-form reasons are allowed, defaults to 1.
+LostReasonSettings,requireReasonSelection,Boolean flag whether reason selection is required, defaults to 1.
+LostReasonSettings,isGlobal,Boolean flag whether these settings apply globally, defaults to 0.
+LostReasonSettings,createdAt,Timestamp when this record was created.
+LostReasonSettings,updatedAt,Timestamp when this record was last modified.
+MasterUserPrivileges,privilegeID,Unique numeric primary key for user privileges.
+MasterUserPrivileges,masterUserID,Numeric identifier of the user these privileges belong to.
+MasterUserPrivileges,permissions,Longtext field storing permission definitions.
+MasterUserPrivileges,createdById,Numeric identifier of the user who created this privilege record.
+MasterUserPrivileges,createdBy,Name of the user who created this privilege record.
+MasterUserPrivileges,mode,String indicating operation mode context, can be NULL.
+MasterUserPrivileges,createdAt,Timestamp when this record was created.
+MasterUserPrivileges,updatedAt,Timestamp when this record was last modified.
+MasterUsers,masterUserID,Unique numeric primary key for user account.
+MasterUsers,name,First name of the user.
+MasterUsers,email,Email address of the user.
+MasterUsers,password,Hashed password for authentication, can be NULL.
+MasterUsers,designation,Job designation of the user, can be NULL.
+MasterUsers,department,Department of the user, can be NULL.
+MasterUsers,creatorId,Numeric identifier of the user who created this account.
+MasterUsers,createdBy,Name of the user who created this account.
+MasterUsers,status,Account status, defaults to 'active'.
+MasterUsers,resetToken,Password reset token, can be NULL.
+MasterUsers,resetTokenExpiry,Timestamp when reset token expires, can be NULL.
+MasterUsers,loginType,Type of login authentication used.
+MasterUsers,otp,"One-time password for two-factor authentication, can be NULL."
+MasterUsers,otpExpiration,Timestamp when OTP expires, can be NULL.
+MasterUsers,userType,Type of user account.
+MasterUsers,mobileNumber,Mobile phone number of the user.
+MasterUsers,profileImage,URL or path to profile image, can be NULL.
+MasterUsers,bio,Short biography of the user, can be NULL.
+MasterUsers,location,Geographic location of the user, can be NULL.
+MasterUsers,lastName,Last name of the user, can be NULL.
+MasterUsers,isActive,Boolean flag whether the account is active, defaults to 1.
+MasterUsers,deactivatedAt,Timestamp when the account was deactivated, can be NULL.
+MasterUsers,deactivatedBy,Numeric identifier of the user who deactivated this account, can be NULL.
+MasterUsers,deactivationReason,Text reason for account deactivation, can be NULL.
+MasterUsers,googleOAuthToken,Text field storing Google OAuth token, can be NULL.
+MasterUsers,permissionSetId,Numeric identifier of assigned permission set, can be NULL.
+MasterUsers,globalPermissionSetId,Numeric identifier of global permission set, can be NULL.
+MasterUsers,groupId,Numeric identifier of user's group, can be NULL.
+MasterUsers,twoFactorEnabled,Boolean flag whether two-factor authentication is enabled, defaults to 0.
+MasterUsers,twoFactorSecret,Text field storing 2FA secret key, can be NULL.
+MasterUsers,twoFactorBackupCodes,Text field storing backup codes, can be NULL.
+MasterUsers,twoFactorEnabledAt,Timestamp when 2FA was enabled, can be NULL.
+MasterUsers,twoFactorVerificationLinkEnabled,Boolean flag whether verification link is enabled.
+MasterUsers,twoFactorVerificationToken,Token for 2FA verification link, can be NULL.
+MasterUsers,twoFactorVerificationTokenExpiry,Timestamp when verification token expires, can be NULL.
+MasterUsers,defaultCurrency,Default currency code for this user, can be NULL.
+MasterUsers,createdAt,Timestamp when this record was created.
+MasterUsers,updatedAt,Timestamp when this record was last modified.
+Meetings,meetingId,Unique numeric primary key for meeting record.
+Meetings,activityId,Numeric identifier of the associated activity.
+Meetings,timezone,Timezone for the meeting, defaults to 'UTC'.
+Meetings,meetingStatus,"Enum value indicating meeting status: scheduled, confirmed, cancelled, completed, or no_show, defaults to 'scheduled'."
+Meetings,recurrenceRule,Text field storing recurrence pattern rule, can be NULL.
+Meetings,recurrenceEndDate,Timestamp when recurrence ends, can be NULL.
+Meetings,reminderMinutes,Longtext field storing reminder minutes settings, can be NULL.
+Meetings,meetingUrl,URL for virtual meeting access, can be NULL.
+Meetings,organizerEmail,Email address of the meeting organizer.
+Meetings,organizerName,Name of the meeting organizer.
+Meetings,icsUid,Unique identifier for iCalendar feed, can be NULL.
+Meetings,sendInvites,Boolean flag whether to send invitation emails, defaults to 1.
+Meetings,lastSentAt,Timestamp when the last invitation was sent, can be NULL.
+Meetings,cancelledAt,Timestamp when the meeting was cancelled, can be NULL.
+Meetings,cancelledBy,Numeric identifier of the user who cancelled the meeting, can be NULL.
+Meetings,cancellationReason,Text reason for cancellation, can be NULL.
+Meetings,externalAttendees,Longtext field listing external attendees, can be NULL.
+Meetings,meetingNotes,Text notes from the meeting, can be NULL.
+Meetings,followUpRequired,Boolean flag whether follow-up is required, defaults to 0.
+Meetings,masterUserID,Numeric identifier of the user who owns this meeting.
+Meetings,createdAt,Timestamp when this record was created.
+Meetings,updatedAt,Timestamp when this record was last modified.
+MergeMaps,id,Unique numeric primary key for merge map record.
+MergeMaps,entity_type,"Enum value indicating entity type: deal or lead."
+MergeMaps,merged_from_id,Numeric identifier of the source entity that was merged from.
+MergeMaps,merged_into_id,Numeric identifier of the destination entity that was merged into.
+MergeMaps,merged_by,Numeric identifier of the user who performed the merge.
+MergeMaps,reason,Reason for the merge, can be NULL.
+MergeMaps,created_at,Timestamp when this record was created.
+MiscSettings,id,Unique numeric primary key for miscellaneous settings.
+MiscSettings,maxImageSizeMB,Maximum allowed image size in megabytes, defaults to 5.
+MiscSettings,allowedImageTypes,"Comma-separated list of allowed image extensions, defaults to 'jpg,jpeg,png,gif'."
+MiscSettings,createdAt,Timestamp when this record was created.
+MiscSettings,updatedAt,Timestamp when this record was last modified.
+NotificationPreferences,preferenceId,Unique numeric primary key for notification preferences.
+NotificationPreferences,userId,Numeric identifier of the user these preferences belong to.
+NotificationPreferences,inAppEnabled,Boolean flag whether in-app notifications are enabled, defaults to 1.
+NotificationPreferences,inAppDealCreated,Boolean flag for in-app deal created notifications, defaults to 1.
+NotificationPreferences,inAppDealUpdated,Boolean flag for in-app deal updated notifications, defaults to 1.
+NotificationPreferences,inAppDealAssigned,Boolean flag for in-app deal assigned notifications, defaults to 1.
+NotificationPreferences,inAppDealWon,Boolean flag for in-app deal won notifications, defaults to 1.
+NotificationPreferences,inAppDealLost,Boolean flag for in-app deal lost notifications, defaults to 1.
+NotificationPreferences,inAppLeadCreated,Boolean flag for in-app lead created notifications, defaults to 1.
+NotificationPreferences,inAppLeadAssigned,Boolean flag for in-app lead assigned notifications, defaults to 1.
+NotificationPreferences,inAppActivityCreated,Boolean flag for in-app activity created notifications, defaults to 1.
+NotificationPreferences,inAppActivityAssigned,Boolean flag for in-app activity assigned notifications, defaults to 1.
+NotificationPreferences,inAppActivityDue,Boolean flag for in-app activity due notifications, defaults to 1.
+NotificationPreferences,inAppEmailReceived,Boolean flag for in-app email received notifications, defaults to 1.
+NotificationPreferences,inAppMention,Boolean flag for in-app mention notifications, defaults to 1.
+NotificationPreferences,inAppComment,Boolean flag for in-app comment notifications, defaults to 1.
+NotificationPreferences,pushEnabled,Boolean flag whether push notifications are enabled, defaults to 0.
+NotificationPreferences,pushDealCreated,Boolean flag for push deal created notifications, defaults to 0.
+NotificationPreferences,pushDealAssigned,Boolean flag for push deal assigned notifications, defaults to 1.
+NotificationPreferences,pushDealWon,Boolean flag for push deal won notifications, defaults to 1.
+NotificationPreferences,pushActivityAssigned,Boolean flag for push activity assigned notifications, defaults to 1.
+NotificationPreferences,pushActivityDue,Boolean flag for push activity due notifications, defaults to 1.
+NotificationPreferences,pushEmailReceived,Boolean flag for push email received notifications, defaults to 0.
+NotificationPreferences,pushMention,Boolean flag for push mention notifications, defaults to 1.
+NotificationPreferences,emailEnabled,Boolean flag whether email notifications are enabled, defaults to 1.
+NotificationPreferences,emailDigestFrequency,"Enum value for email digest frequency: none, immediate, daily, or weekly, defaults to 'daily'."
+NotificationPreferences,emailDealAssigned,Boolean flag for email deal assigned notifications, defaults to 1.
+NotificationPreferences,emailActivityDue,Boolean flag for email activity due notifications, defaults to 1.
+NotificationPreferences,emailMention,Boolean flag for email mention notifications, defaults to 1.
+NotificationPreferences,groupSimilarNotifications,Boolean flag whether to group similar notifications, defaults to 1.
+NotificationPreferences,muteUntil,Timestamp until which notifications are muted, can be NULL.
+NotificationPreferences,quietHoursStart,Time string when quiet hours start, can be NULL.
+NotificationPreferences,quietHoursEnd,Time string when quiet hours end, can be NULL.
+NotificationPreferences,createdAt,Timestamp when this record was created.
+NotificationPreferences,updatedAt,Timestamp when this record was last modified.
+Notifications,notificationId,Unique numeric primary key for notification record.
+Notifications,userId,Numeric identifier of the user this notification is for.
+Notifications,type,"Enum value indicating notification type, such as deal_created, lead_assigned, activity_due, etc."
+Notifications,title,Title of the notification.
+Notifications,message,Text content of the notification.
+Notifications,isRead,Boolean flag whether the notification has been read, defaults to 0.
+Notifications,priority,"Enum value for priority level: low, medium, high, or urgent, defaults to 'medium'."
+Notifications,entityType,"Enum value indicating linked entity type, such as deal, lead, activity, email, contact, organization, goal, report, or system, can be NULL."
+Notifications,entityId,Numeric identifier of the linked entity, can be NULL.
+Notifications,actionUrl,URL for action related to this notification, can be NULL.
+Notifications,actionBy,Numeric identifier of the user who triggered this notification, can be NULL.
+Notifications,metadata,Longtext field storing additional notification metadata, can be NULL.
+Notifications,readAt,Timestamp when the notification was read, can be NULL.
+Notifications,expiresAt,Timestamp when the notification expires, can be NULL.
+Notifications,isDeleted,Boolean flag whether the notification is deleted, defaults to 0.
+Notifications,deletedAt,Timestamp when the notification was deleted, can be NULL.
+Notifications,createdAt,Timestamp when this record was created.
+Notifications,updatedAt,Timestamp when this record was last modified.
+OrganizationColumnPreferences,id,Unique numeric primary key.
+OrganizationColumnPreferences,masterUserID,Numeric user identifier who owns these column preferences, can be NULL.
+OrganizationColumnPreferences,columns,Longtext field storing column visibility and display order preferences.
+OrganizationColumnPreferences,createdAt,Timestamp when this record was created.
+OrganizationColumnPreferences,updatedAt,Timestamp when this record was last modified.
+OrganizationFiles,fileId,Unique numeric primary key for organization file record.
+OrganizationFiles,leadOrganizationId,Numeric identifier of the organization this file belongs to.
+OrganizationFiles,fileName,Original name of the file.
+OrganizationFiles,fileDisplayName,Display name shown to users for this file, can be NULL.
+OrganizationFiles,filePath,Storage path or URL where the file is located.
+OrganizationFiles,fileSize,Size of the file in bytes.
+OrganizationFiles,mimeType,MIME type of the file.
+OrganizationFiles,fileExtension,"File extension such as .pdf or .docx, can be NULL."
+OrganizationFiles,fileCategory,"Enum value categorizing the file type, such as document, image, video, audio, spreadsheet, presentation, archive, contract, brochure, or other, defaults to 'document'."
+OrganizationFiles,description,Text description of the file content, can be NULL.
+OrganizationFiles,tags,Longtext field storing tags associated with the file, can be NULL.
+OrganizationFiles,isPublic,Boolean flag whether the file is publicly accessible, defaults to 0.
+OrganizationFiles,uploadedBy,Numeric identifier of the user who uploaded this file.
+OrganizationFiles,lastAccessedAt,Timestamp when the file was last accessed, can be NULL.
+OrganizationFiles,downloadCount,Numeric count of downloads, defaults to 0.
+OrganizationFiles,version,Numeric version number of this file, defaults to 1.
+OrganizationFiles,previousVersionId,Numeric identifier of the previous version, can be NULL.
+OrganizationFiles,isActive,Boolean flag whether this file record is active, defaults to 1.
+OrganizationFiles,masterUserID,Numeric identifier of the user who owns this file record.
+OrganizationFiles,createdAt,Timestamp when this record was created, can be NULL.
+OrganizationFiles,updatedAt,Timestamp when this record was last modified, can be NULL.
+OrganizationNotes,noteId,Unique numeric primary key for organization note record.
+OrganizationNotes,leadOrganizationId,Numeric identifier of the organization this note belongs to.
+OrganizationNotes,masterUserID,Numeric identifier of the user who owns this note.
+OrganizationNotes,content,Longtext content of the note.
+OrganizationNotes,createdBy,Numeric identifier of the user who created this note.
+OrganizationNotes,createdAt,Timestamp when this record was created.
+OrganizationNotes,updatedAt,Timestamp when this record was last modified.
+Organizations,organizationId,Unique numeric primary key for organization type.
+Organizations,organization_desc,Description or name of the organization type.
+Organizations,createdBy,Name of the user who created this record.
+Organizations,createdById,Numeric identifier of the user who created this record.
+Organizations,mode,String indicating operation mode context, can be NULL.
+Organizations,creationDate,Timestamp when this organization type was created.
+Organizations,createdAt,Timestamp when this record was created.
+Organizations,updatedAt,Timestamp when this record was last modified.
+OrganizationSidebarPreferences,id,Unique numeric primary key.
+OrganizationSidebarPreferences,masterUserID,Numeric identifier of the user who owns these sidebar preferences.
+OrganizationSidebarPreferences,sidebarSections,Longtext field storing sidebar section layout configuration.
+OrganizationSidebarPreferences,createdAt,Timestamp when this record was created, can be NULL.
+OrganizationSidebarPreferences,updatedAt,Timestamp when this record was last modified, can be NULL.
+PermissionSets,permissionSetId,Unique numeric primary key for permission set.
+PermissionSets,permissions,Longtext field storing permission definitions, can be NULL.
+PermissionSets,name,Name of the permission set.
+PermissionSets,groupName,Group name for organizing permission sets, can be NULL.
+PermissionSets,description,Description of the permission set, can be NULL.
+PermissionSets,createdAt,Timestamp when this record was created.
+PermissionSets,updatedAt,Timestamp when this record was last modified.
+PersonColumnPreferences,id,Unique numeric primary key.
+PersonColumnPreferences,masterUserID,Numeric user identifier who owns these column preferences, can be NULL.
+PersonColumnPreferences,columns,Longtext field storing column visibility and display order preferences.
+PersonColumnPreferences,createdAt,Timestamp when this record was created.
+PersonColumnPreferences,updatedAt,Timestamp when this record was last modified.
+PersonFiles,fileId,Unique numeric primary key for person file record.
+PersonFiles,personId,Numeric identifier of the person this file belongs to.
+PersonFiles,fileName,Original name of the file.
+PersonFiles,fileDisplayName,Display name shown to users for this file, can be NULL.
+PersonFiles,filePath,Storage path or URL where the file is located.
+PersonFiles,fileSize,Size of the file in bytes.
+PersonFiles,mimeType,MIME type of the file.
+PersonFiles,fileExtension,"File extension such as .pdf or .docx, can be NULL."
+PersonFiles,fileCategory,"Enum value categorizing the file type, such as document, image, video, audio, spreadsheet, presentation, archive, contract, resume, or other, defaults to 'document'."
+PersonFiles,description,Text description of the file content, can be NULL.
+PersonFiles,tags,Longtext field storing tags associated with the file, can be NULL.
+PersonFiles,isPublic,Boolean flag whether the file is publicly accessible, defaults to 0.
+PersonFiles,uploadedBy,Numeric identifier of the user who uploaded this file.
+PersonFiles,lastAccessedAt,Timestamp when the file was last accessed, can be NULL.
+PersonFiles,downloadCount,Numeric count of downloads, defaults to 0.
+PersonFiles,version,Numeric version number of this file, defaults to 1.
+PersonFiles,previousVersionId,Numeric identifier of the previous version, can be NULL.
+PersonFiles,isActive,Boolean flag whether this file record is active, defaults to 1.
+PersonFiles,masterUserID,Numeric identifier of the user who owns this file record.
+PersonFiles,createdAt,Timestamp when this record was created, can be NULL.
+PersonFiles,updatedAt,Timestamp when this record was last modified, can be NULL.
+PersonNotes,noteId,Unique numeric primary key for person note record.
+PersonNotes,personId,Numeric identifier of the person this note belongs to.
+PersonNotes,masterUserID,Numeric identifier of the user who owns this note.
+PersonNotes,content,Longtext content of the note.
+PersonNotes,createdBy,Numeric identifier of the user who created this note.
+PersonNotes,createdAt,Timestamp when this record was created.
+PersonNotes,updatedAt,Timestamp when this record was last modified.
+PersonSidebarPreferences,id,Unique numeric primary key.
+PersonSidebarPreferences,masterUserID,Numeric identifier of the user who owns these sidebar preferences.
+PersonSidebarPreferences,sidebarSections,Longtext field storing sidebar section layout configuration.
+PersonSidebarPreferences,createdAt,Timestamp when this record was created, can be NULL.
+PersonSidebarPreferences,updatedAt,Timestamp when this record was last modified, can be NULL.
+Pipelines,pipelineId,Unique numeric primary key for sales pipeline.
+Pipelines,pipelineName,Name of the pipeline.
+Pipelines,description,Text description of the pipeline, can be NULL.
+Pipelines,isDefault,Boolean flag whether this is the default pipeline, defaults to 0.
+Pipelines,isActive,Boolean flag whether this pipeline is active, defaults to 1.
+Pipelines,color,Color code for the pipeline, defaults to '#007BFF'.
+Pipelines,displayOrder,Numeric order for displaying this pipeline, defaults to 0.
+Pipelines,masterUserID,Numeric identifier of the user who owns this pipeline.
+Pipelines,createdBy,Numeric identifier of the user who created this pipeline.
+Pipelines,updatedBy,Numeric identifier of the user who last updated this pipeline, can be NULL.
+Pipelines,createdAt,Timestamp when this record was created.
+Pipelines,updatedAt,Timestamp when this record was last modified.
+PipelineStages,stageId,Unique numeric primary key for pipeline stage.
+PipelineStages,pipelineId,Numeric identifier of the pipeline this stage belongs to.
+PipelineStages,stageName,Name of the stage.
+PipelineStages,stageOrder,Numeric order of this stage within the pipeline, defaults to 0.
+PipelineStages,probability,Decimal probability percentage of closing at this stage, defaults to 0.00.
+PipelineStages,dealRottenDays,Numeric days after which a deal becomes rotten in this stage, can be NULL.
+PipelineStages,color,Color code for the stage, defaults to '#28A745'.
+PipelineStages,isActive,Boolean flag whether this stage is active, defaults to 1.
+PipelineStages,masterUserID,Numeric identifier of the user who owns this stage.
+PipelineStages,createdBy,Numeric identifier of the user who created this stage.
+PipelineStages,updatedBy,Numeric identifier of the user who last updated this stage, can be NULL.
+PipelineStages,createdAt,Timestamp when this record was created.
+PipelineStages,updatedAt,Timestamp when this record was last modified.
+PipelineVisibilityRules,ruleId,Unique numeric primary key for pipeline visibility rule.
+PipelineVisibilityRules,groupId,Numeric identifier of the group this rule applies to.
+PipelineVisibilityRules,pipelineId,Numeric identifier of the pipeline this rule applies to.
+PipelineVisibilityRules,masterUserID,Numeric identifier of the user who owns this rule.
+PipelineVisibilityRules,canView,Boolean flag whether the group can view this pipeline, defaults to 1.
+PipelineVisibilityRules,canEdit,Boolean flag whether the group can edit this pipeline, defaults to 0.
+PipelineVisibilityRules,canDelete,Boolean flag whether the group can delete this pipeline, defaults to 0.
+PipelineVisibilityRules,canCreateDeals,Boolean flag whether the group can create deals in this pipeline, defaults to 1.
+PipelineVisibilityRules,isActive,Boolean flag whether this rule is active, defaults to 1.
+PipelineVisibilityRules,createdBy,Numeric identifier of the user who created this rule.
+PipelineVisibilityRules,updatedBy,Numeric identifier of the user who last updated this rule, can be NULL.
+PipelineVisibilityRules,createdAt,Timestamp when this record was created.
+PipelineVisibilityRules,updatedAt,Timestamp when this record was last modified.
+ProductColumns,id,Unique numeric primary key.
+ProductColumns,masterUserID,Numeric user identifier who owns these column preferences, can be NULL.
+ProductColumns,columns,Longtext field storing column visibility and display order preferences.
+ProductColumns,createdAt,Timestamp when this record was created.
+ProductColumns,updatedAt,Timestamp when this record was last modified.
+Products,productId,Unique numeric primary key for product.
+Products,name,Name of the product.
+Products,code,"Product code or SKU, can be NULL."
+Products,description,Text description of the product, can be NULL.
+Products,category,Category of the product, can be NULL.
+Products,unit,Unit of measurement for the product, can be NULL.
+Products,prices,Longtext field storing price information, can be NULL.
+Products,cost,Decimal cost of the product, can be NULL.
+Products,costCurrency,Currency code for the cost, defaults to 'INR'.
+Products,billingFrequency,"Enum value for billing frequency: one-time, weekly, monthly, quarterly, semi-annually, annually, or custom, defaults to 'one-time'."
+Products,billingFrequencyCustom,Numeric custom billing frequency in days, can be NULL.
+Products,taxType,"Enum value for tax treatment: tax-exclusive, tax-inclusive, or no-tax, defaults to 'tax-exclusive'."
+Products,taxPercentage,Decimal tax percentage, defaults to 0.00.
+Products,discountType,"Enum value for discount type: percentage or fixed, can be NULL."
+Products,discountValue,Decimal discount value, can be NULL.
+Products,hasVariations,Boolean flag whether this product has variations, defaults to 0.
+Products,isActive,Boolean flag whether this product is active, defaults to 1.
+Products,visibilityGroup,Name of visibility group for this product, can be NULL.
+Products,ownerId,Numeric identifier of the user who owns this product.
+Products,companyId,Numeric identifier of the company, can be NULL.
+Products,imageUrl,URL to product image, can be NULL.
+Products,metadata,Longtext field storing additional product metadata, can be NULL.
+Products,createdAt,Timestamp when this record was created.
+Products,updatedAt,Timestamp when this record was last modified.
+ProductVariations,variationId,Unique numeric primary key for product variation.
+ProductVariations,productId,Numeric identifier of the parent product.
+ProductVariations,name,Name of the variation.
+ProductVariations,sku,"Stock keeping unit code for this variation, can be NULL."
+ProductVariations,description,Text description of the variation, can be NULL.
+ProductVariations,prices,Longtext field storing price information for this variation, can be NULL.
+ProductVariations,cost,Decimal cost of this variation, can be NULL.
+ProductVariations,attributes,Longtext field storing variation attributes, can be NULL.
+ProductVariations,sortOrder,Numeric order for displaying this variation, defaults to 0.
+ProductVariations,isActive,Boolean flag whether this variation is active, defaults to 1.
+ProductVariations,createdAt,Timestamp when this record was created.
+ProductVariations,updatedAt,Timestamp when this record was last modified.
+Programs,programId,Unique numeric primary key for program.
+Programs,program_desc,Description or name of the program.
+Programs,createdBy,Name of the user who created this record.
+Programs,createdById,Numeric identifier of the user who created this record.
+Programs,mode,String indicating operation mode context, can be NULL.
+Programs,creationDate,Timestamp when this program was created.
+Programs,createdAt,Timestamp when this record was created.
+Programs,updatedAt,Timestamp when this record was last modified.
+PushSubscriptions,subscriptionId,Unique numeric primary key for push subscription.
+PushSubscriptions,userId,Numeric identifier of the user who owns this subscription.
+PushSubscriptions,endpoint,Text field storing the push notification endpoint URL.
+PushSubscriptions,keys,Longtext field storing encryption keys for push notifications.
+PushSubscriptions,deviceInfo,Longtext field storing device information, can be NULL.
+PushSubscriptions,isActive,Boolean flag whether this subscription is active, defaults to 1.
+PushSubscriptions,lastUsed,Timestamp when this subscription was last used, can be NULL.
+PushSubscriptions,expiresAt,Timestamp when this subscription expires, can be NULL.
+PushSubscriptions,createdAt,Timestamp when this record was created.
+PushSubscriptions,updatedAt,Timestamp when this record was last modified.
+RecentLoginHistories,id,Unique numeric primary key.
+RecentLoginHistories,userId,Numeric identifier of the user who logged in.
+RecentLoginHistories,loginTime,Timestamp when the login occurred, can be NULL.
+RecentLoginHistories,ipAddress,IP address of the login request, can be NULL.
+RecentLoginHistories,longitude,Longitude coordinate of the login location, can be NULL.
+RecentLoginHistories,latitude,Latitude coordinate of the login location, can be NULL.
+RecentLoginHistories,loginType,"Enum value indicating user type: admin, general, or master."
+RecentLoginHistories,logoutTime,Timestamp when the user logged out, can be NULL.
+RecentLoginHistories,duration,String representation of session duration, can be NULL.
+RecentLoginHistories,username,Username of the user who logged in, can be NULL.
+RecentLoginHistories,totalSessionDuration,String representation of total session time, can be NULL.
+RecentLoginHistories,createdAt,Timestamp when this record was created.
+RecentLoginHistories,updatedAt,Timestamp when this record was last modified.
+RecentSearches,id,Unique numeric primary key.
+RecentSearches,searchTerm,Search term text.
+RecentSearches,searchTypes,Longtext field storing search type filters, can be NULL.
+RecentSearches,resultsCount,Numeric count of search results, defaults to 0.
+RecentSearches,searchResults,Text field storing search result data, can be NULL.
+RecentSearches,masterUserID,Numeric identifier of the user who performed the search.
+RecentSearches,searchedAt,Timestamp when the search was performed, can be NULL.
+RecentSearches,isRecentlyViewed,Boolean flag indicating whether this is a recently viewed item, defaults to 0.
+RecentSearches,entityType,Type of entity that was viewed, can be NULL.
+RecentSearches,entityId,Numeric identifier of the viewed entity.
+RecentSearches,createdAt,Timestamp when this record was created.
+RecentSearches,updatedAt,Timestamp when this record was last modified.
+RefreshTokens,tokenId,Unique numeric primary key for refresh token.
+RefreshTokens,masterUserID,Numeric identifier of the user who owns this token.
+RefreshTokens,tokenHash,Hashed value of the refresh token.
+RefreshTokens,expiresAt,Timestamp when this token expires.
+RefreshTokens,deviceInfo,Device information associated with this token, can be NULL.
+RefreshTokens,ipAddress,IP address associated with this token, can be NULL.
+RefreshTokens,userAgent,User agent string of the device, can be NULL.
+RefreshTokens,isRevoked,Boolean flag whether this token has been revoked, defaults to 0.
+RefreshTokens,createdAt,Timestamp when this record was created, can be NULL.
+RefreshTokens,lastUsedAt,Timestamp when this token was last used, can be NULL.
+Regions,regionID,Unique numeric primary key for region.
+Regions,region_desc,Description or name of the region.
+Regions,countryId,Numeric identifier of the country this region belongs to.
+Regions,createdBy,Name of the user who created this record.
+Regions,createdById,Numeric identifier of the user who created this record.
+Regions,mode,String indicating operation mode context, can be NULL.
+Regions,creationDate,Timestamp when this region was created.
+Regions,createdAt,Timestamp when this record was created.
+Regions,updatedAt,Timestamp when this record was last modified.
+ReportFolders,reportFolderId,Unique numeric primary key for report folder.
+ReportFolders,name,Name of the folder.
+ReportFolders,ownerId,Numeric identifier of the user who owns this folder.
+ReportFolders,createdAt,Timestamp when this record was created.
+ReportFolders,updatedAt,Timestamp when this record was last modified.
+Reports,reportId,Unique numeric primary key for report.
+Reports,dashboardIds,String listing dashboard IDs this report belongs to, can be NULL.
+Reports,name,Name of the report, defaults to 'Untitled Report'.
+Reports,entity,Entity type the report is based on.
+Reports,type,Type of the report.
+Reports,config,Longtext field storing report configuration, can be NULL.
+Reports,position,Numeric position for display order, defaults to 0.
+Reports,description,Text description of the report, can be NULL.
+Reports,folderId,Numeric identifier of the folder containing this report, can be NULL.
+Reports,ownerId,Numeric identifier of the user who owns this report.
+Reports,graphtype,Type of graph or chart to display, defaults to 'bar'.
+Reports,colors,Longtext field storing color configuration, can be NULL.
+Reports,isActive,Boolean flag whether this report is active, defaults to 1.
+Reports,createdAt,Timestamp when this record was created.
+Reports,updatedAt,Timestamp when this record was last modified.
+Reports,dashboardId,Numeric identifier of associated dashboard, can be NULL.
+SchedulingLinks,linkId,Unique numeric primary key for scheduling link.
+SchedulingLinks,masterUserID,Numeric identifier of the user who owns this link.
+SchedulingLinks,uniqueToken,Unique token identifier for the scheduling link.
+SchedulingLinks,title,Title of the scheduling link, defaults to 'Schedule a Meeting'.
+SchedulingLinks,description,Text description of the meeting type, can be NULL.
+SchedulingLinks,durationMinutes,Numeric duration of the meeting in minutes, defaults to 30.
+SchedulingLinks,timezone,Timezone for scheduling, defaults to 'UTC'.
+SchedulingLinks,bufferTimeBefore,Numeric buffer minutes before the meeting, defaults to 0.
+SchedulingLinks,bufferTimeAfter,Numeric buffer minutes after the meeting, defaults to 0.
+SchedulingLinks,advanceBookingDays,Numeric days in advance allowed for booking, defaults to 30.
+SchedulingLinks,workingHours,Text field storing available working hours, can be NULL.
+SchedulingLinks,meetingLocation,"Location or meeting URL, can be NULL."
+SchedulingLinks,requireEmail,Boolean flag whether email is required from booker, defaults to 1.
+SchedulingLinks,requireName,Boolean flag whether name is required from booker, defaults to 1.
+SchedulingLinks,requirePhone,Boolean flag whether phone number is required, defaults to 0.
+SchedulingLinks,customFields,Text field storing custom field definitions, can be NULL.
+SchedulingLinks,autoConfirm,Boolean flag whether to auto-confirm bookings, defaults to 1.
+SchedulingLinks,sendReminderEmail,Boolean flag whether to send reminder emails, defaults to 1.
+SchedulingLinks,isActive,Boolean flag whether this scheduling link is active, defaults to 1.
+SchedulingLinks,bookingCount,Numeric count of bookings made using this link, defaults to 0.
+SchedulingLinks,lastUsedAt,Timestamp when this link was last used, can be NULL.
+SchedulingLinks,createdAt,Timestamp when this record was created.
+SchedulingLinks,updatedAt,Timestamp when this record was last modified.
+Scopes,scopeId,Unique numeric primary key for scope.
+Scopes,scope_desc,Description or name of the scope.
+Scopes,createdBy,Name of the user who created this record.
+Scopes,createdById,Numeric identifier of the user who created this record.
+Scopes,mode,String indicating operation mode context, can be NULL.
+Scopes,creationDate,Timestamp when this scope was created.
+Scopes,createdAt,Timestamp when this record was created.
+Scopes,updatedAt,Timestamp when this record was last modified.
+Sectoralscopes,sectoralscopeId,Unique numeric primary key for sectoral scope.
+Sectoralscopes,sectoralscope_desc,Description or name of the sectoral scope.
+Sectoralscopes,createdBy,Name of the user who created this record.
+Sectoralscopes,createdById,Numeric identifier of the user who created this record.
+Sectoralscopes,mode,String indicating operation mode context, can be NULL.
+Sectoralscopes,creationDate,Timestamp when this sectoral scope was created.
+Sectoralscopes,createdAt,Timestamp when this record was created.
+Sectoralscopes,updatedAt,Timestamp when this record was last modified.
+StartupQuestions,id,Unique numeric primary key for startup questions response.
+StartupQuestions,masterUserID,Numeric identifier of the user who answered these questions.
+StartupQuestions,jobTitle,Job title of the user.
+StartupQuestions,useCrmBefore,Whether the user has used a CRM before.
+StartupQuestions,companySize,Size of the user's company.
+StartupQuestions,industry,Industry sector of the user's company.
+StartupQuestions,companyName,Name of the user's company.
+StartupQuestions,totalEmployees,Total number of employees in the company.
+StartupQuestions,focus,Primary focus or use case for the CRM.
+StartupQuestions,createdAt,Timestamp when this record was created.
+StartupQuestions,updatedAt,Timestamp when this record was last modified.
+Statuses,statusId,Unique numeric primary key for status.
+Statuses,status_desc,Description or name of the status.
+Statuses,createdBy,Name of the user who created this record.
+Statuses,createdById,Numeric identifier of the user who created this record.
+Statuses,mode,String indicating operation mode context, can be NULL.
+Statuses,creationDate,Timestamp when this status was created.
+Statuses,createdAt,Timestamp when this record was created.
+Statuses,updatedAt,Timestamp when this record was last modified.
+TagMaps,id,Unique numeric primary key for tag mapping.
+TagMaps,tag_id,Numeric identifier of the tag.
+TagMaps,entity_type,"Enum value indicating entity type: deal or lead."
+TagMaps,entity_id,Numeric identifier of the tagged entity.
+TagMaps,created_at,Timestamp when this record was created.
+Templates,templateID,Unique numeric primary key for email template.
+Templates,name,Name of the template.
+Templates,subject,Subject line of the template.
+Templates,content,Text content of the template.
+Templates,isShared,Boolean flag whether this template is shared with others, defaults to 0.
+Templates,masterUserID,Numeric identifier of the user who owns this template.
+Templates,createdAt,Timestamp when this record was created.
+Templates,updatedAt,Timestamp when this record was last modified.
+UserCredentials,id,Unique numeric primary key for user credentials.
+UserCredentials,masterUserID,Numeric identifier of the user who owns these credentials.
+UserCredentials,email,Email address for the email account, can be NULL.
+UserCredentials,appPassword,Application password for the email account, can be NULL.
+UserCredentials,syncStartDate,Start date for email sync, can be NULL.
+UserCredentials,syncFolders,Longtext field specifying which folders to sync, can be NULL.
+UserCredentials,syncAllFolders,Boolean flag whether to sync all folders, defaults to 1.
+UserCredentials,isTrackOpenEmail,Boolean flag whether to track email opens, defaults to 1.
+UserCredentials,isTrackClickEmail,Boolean flag whether to track email clicks, defaults to 1.
+UserCredentials,signature,Text field storing email signature, can be NULL.
+UserCredentials,signatureName,Name of the signature, can be NULL.
+UserCredentials,signatureImage,Text field storing signature image data, can be NULL.
+UserCredentials,smartBcc,BCC email address for smart tracking, can be NULL.
+UserCredentials,blockedEmail,Longtext field storing blocked email addresses, can be NULL.
+UserCredentials,provider,Email provider name, defaults to 'gmail'.
+UserCredentials,imapHost,IMAP server hostname, can be NULL.
+UserCredentials,imapPort,IMAP server port number, can be NULL.
+UserCredentials,imapTLS,Boolean flag whether to use TLS for IMAP, can be NULL.
+UserCredentials,smtpHost,SMTP server hostname, can be NULL.
+UserCredentials,smtpPort,SMTP server port number, can be NULL.
+UserCredentials,smtpSecure,Boolean flag whether to use secure connection for SMTP, can be NULL.
+UserCredentials,createdAt,Timestamp when this record was created.
+UserCredentials,updatedAt,Timestamp when this record was last modified.
+UserFavorites,favoriteId,Unique numeric primary key for user favorite.
+UserFavorites,userId,Numeric identifier of the user who marked the favorite.
+UserFavorites,favoriteUserId,Numeric identifier of the user who is marked as favorite.
+UserFavorites,nickname,Nickname for the favorite user, can be NULL.
+UserFavorites,isActive,Boolean flag whether this favorite is active, defaults to 1.
+UserFavorites,createdAt,Timestamp when this record was created.
+UserFavorites,updatedAt,Timestamp when this record was last modified.
+UserGoogleTokens,id,Unique numeric primary key for Google token.
+UserGoogleTokens,userId,Numeric identifier of the user who owns this token.
+UserGoogleTokens,accessToken,Text field storing Google access token, can be NULL.
+UserGoogleTokens,refreshToken,Text field storing Google refresh token, can be NULL.
+UserGoogleTokens,expiryDate,Timestamp when the access token expires, can be NULL.
+UserGoogleTokens,createdAt,Timestamp when this record was created.
+UserGoogleTokens,updatedAt,Timestamp when this record was last modified.
+UserInterfacePreferences,preferenceId,Unique numeric primary key for UI preferences.
+UserInterfacePreferences,masterUserID,Numeric identifier of the user who owns these preferences.
+UserInterfacePreferences,showAddActivityModalAfterWinning,Boolean flag whether to show add activity modal after winning a deal, defaults to 1.
+UserInterfacePreferences,openDetailsViewAfterCreating,Boolean flag whether to open details view after creating an entity, defaults to 0.
+UserInterfacePreferences,openDetailsViewForLeadDeal,Boolean flag whether to open details view for lead or deal, defaults to 0.
+UserInterfacePreferences,openDetailsViewForPerson,Boolean flag whether to open details view for person, defaults to 0.
+UserInterfacePreferences,openDetailsViewForOrganization,Boolean flag whether to open details view for organization, defaults to 0.
+UserInterfacePreferences,automaticAddLeadDealTitle,Boolean flag whether to automatically add lead deal title.
+UserInterfacePreferences,sidebarMenuOrder,Order of sidebar menu items.
+UserInterfacePreferences,graphSummaryColumns,Configuration for graph summary columns.
+UserInterfacePreferences,defaultLandingPage,Default landing page when user logs in.
+UserInterfacePreferences,createdAt,Timestamp when this record was created, can be NULL.
+UserInterfacePreferences,updatedAt,Timestamp when this record was last modified, can be NULL.
+UserNotInterestedReasons,id,Unique numeric primary key for not interested reason.
+UserNotInterestedReasons,masterUserID,Numeric identifier of the user who owns this reason.
+UserNotInterestedReasons,reason,Name or description of the reason.
+UserNotInterestedReasons,description,Text description providing more detail, can be NULL.
+UserNotInterestedReasons,createdAt,Timestamp when this record was created.
+UserNotInterestedReasons,updatedAt,Timestamp when this record was last modified.
+VisibilityGroups,groupId,Unique numeric primary key for visibility group.
+VisibilityGroups,groupName,Name of the visibility group.
+VisibilityGroups,description,Text description of the group, can be NULL.
+VisibilityGroups,parentGroupId,Numeric identifier of the parent group, can be NULL.
+VisibilityGroups,masterUserID,Numeric identifier of the user who owns this group.
+VisibilityGroups,isDefault,Boolean flag whether this is the default group, defaults to 0.
+VisibilityGroups,isActive,Boolean flag whether this group is active, defaults to 1.
+VisibilityGroups,hierarchyLevel,Numeric level in the group hierarchy, defaults to 0.
+VisibilityGroups,createdBy,Numeric identifier of the user who created this group.
+VisibilityGroups,updatedBy,Numeric identifier of the user who last updated this group, can be NULL.
+VisibilityGroups,createdAt,Timestamp when this record was created.
+VisibilityGroups,updatedAt,Timestamp when this record was last modified.
+WebFormFields,fieldId,Unique numeric primary key for web form field.
+WebFormFields,formId,Numeric identifier of the web form this field belongs to.
+WebFormFields,fieldName,Internal name of the field.
+WebFormFields,fieldLabel,Display label shown to users.
+WebFormFields,fieldType,"Enum value indicating field type, such as text, email, phone, number, textarea, select, radio, checkbox, date, file, or url, defaults to 'text'."
+WebFormFields,placeholder,Placeholder text for the input field, can be NULL.
+WebFormFields,defaultValue,Default value for the field, can be NULL.
+WebFormFields,options,Text field storing selectable options for dropdown fields, can be NULL.
+WebFormFields,isRequired,Boolean flag whether this field is required, defaults to 0.
+WebFormFields,validationRule,Validation rule for this field, can be NULL.
+WebFormFields,validationMessage,Message to show when validation fails, can be NULL.
+WebFormFields,minLength,Minimum character length for text fields, can be NULL.
+WebFormFields,maxLength,Maximum character length for text fields, can be NULL.
+WebFormFields,fieldOrder,Numeric order of this field in the form, defaults to 0.
+WebFormFields,fieldWidth,"Enum value for field width: full, half, or third, defaults to 'full'."
+WebFormFields,mapToLeadField,Name of the CRM lead field to map to, can be NULL.
+WebFormFields,mapToPersonField,Name of the CRM person field to map to, can be NULL.
+WebFormFields,mapToOrganizationField,Name of the CRM organization field to map to, can be NULL.
+WebFormFields,storeInCustomField,Boolean flag whether to store value in a custom field, defaults to 0.
+WebFormFields,cssClass,CSS class name for styling the field, can be NULL.
+WebFormFields,helpText,Help text displayed below the field, can be NULL.
+WebFormFields,createdAt,Timestamp when this record was created, can be NULL.
+WebFormFields,updatedAt,Timestamp when this record was last modified, can be NULL.
+WebForms,formId,Unique numeric primary key for web form.
+WebForms,formName,Name of the web form.
+WebForms,formTitle,Title displayed on the form, can be NULL.
+WebForms,formDescription,Description text displayed on the form, can be NULL.
+WebForms,embedCode,Embed code for placing the form on external websites, can be NULL.
+WebForms,uniqueKey,Unique identifier for this web form.
+WebForms,status,"Enum value indicating form status: active, inactive, or draft, defaults to 'draft'."
+WebForms,primaryColor,Primary color for form styling, defaults to '#3B82F6'.
+WebForms,buttonText,Text displayed on the submit button, defaults to 'Submit'.
+WebForms,successMessage,Message shown after successful submission, can be NULL.
+WebForms,redirectUrl,URL to redirect after successful submission, can be NULL.
+WebForms,leadSource,Source label for leads created from this form, defaults to 'Website Form'.
+WebForms,autoAssignTo,Numeric identifier of user to auto-assign leads to, can be NULL.
+WebForms,defaultPipelineId,Numeric identifier of default pipeline for leads, can be NULL.
+WebForms,defaultStageId,Numeric identifier of default stage for leads, can be NULL.
+WebForms,totalSubmissions,Numeric count of total form submissions, defaults to 0.
+WebForms,totalViews,Numeric count of total form views, defaults to 0.
+WebForms,conversionRate,Decimal conversion rate percentage, defaults to 0.
+WebForms,masterUserID,Numeric identifier of the user who owns this form.
+WebForms,organizationId,Numeric identifier of associated organization, can be NULL.
+WebForms,allowedDomains,Text field listing allowed domains for form embedding, can be NULL.
+WebForms,enableCaptcha,Boolean flag whether to enable CAPTCHA, defaults to 0.
+WebForms,enableDoubleOptIn,Boolean flag whether to enable double opt-in, defaults to 0.
+WebForms,gdprCompliant,Boolean flag whether the form is GDPR compliant, defaults to 1.
+WebForms,consentText,Text for GDPR consent checkbox, can be NULL.
+WebForms,privacyPolicyUrl,URL to privacy policy, can be NULL.
+WebForms,notifyEmail,Email address to send notifications to, can be NULL.
+WebForms,enableNotifications,Boolean flag whether to enable email notifications, defaults to 1.
+WebForms,createdAt,Timestamp when this record was created, can be NULL.
+WebForms,updatedAt,Timestamp when this record was last modified, can be NULL.
+WebFormSubmissions,submissionId,Unique numeric primary key for web form submission.
+WebFormSubmissions,formId,Numeric identifier of the web form this submission belongs to.
+WebFormSubmissions,formData,Text field storing the submitted form data.
+WebFormSubmissions,leadId,Numeric identifier of the created lead, can be NULL.
+WebFormSubmissions,personId,Numeric identifier of the created person, can be NULL.
+WebFormSubmissions,organizationId,Numeric identifier of the created organization, can be NULL.
+WebFormSubmissions,sourceUrl,URL where the form was embedded, can be NULL.
+WebFormSubmissions,referrerUrl,Referrer URL of the submission, can be NULL.
+WebFormSubmissions,userAgent,User agent string of the submitter's browser, can be NULL.
+WebFormSubmissions,ipAddress,IP address of the submitter, can be NULL.
+WebFormSubmissions,country,Country of the submitter, can be NULL.
+WebFormSubmissions,city,City of the submitter, can be NULL.
+WebFormSubmissions,utmSource,UTM source parameter, can be NULL.
+WebFormSubmissions,utmMedium,UTM medium parameter, can be NULL.
+WebFormSubmissions,utmCampaign,UTM campaign parameter, can be NULL.
+WebFormSubmissions,utmTerm,UTM term parameter, can be NULL.
+WebFormSubmissions,utmContent,UTM content parameter, can be NULL.
+WebFormSubmissions,status,"Enum value indicating submission status: pending, converted, duplicate, spam, or failed, defaults to 'pending'."
+WebFormSubmissions,isRead,Boolean flag whether the submission has been read, defaults to 0.
+WebFormSubmissions,consentGiven,Boolean flag whether consent was given, defaults to 0.
+WebFormSubmissions,consentTimestamp,Timestamp when consent was given, can be NULL.
+WebFormSubmissions,consentIp,IP address when consent was given, can be NULL.
+WebFormSubmissions,qualityScore,Numeric quality score of the submission, defaults to 0.
+WebFormSubmissions,notes,Text notes about the submission, can be NULL.
+WebFormSubmissions,processedBy,Numeric identifier of the user who processed this submission, can be NULL.
+WebFormSubmissions,processedAt,Timestamp when the submission was processed, can be NULL.
+WebFormSubmissions,spamScore,Decimal spam detection score, defaults to 0.
+WebFormSubmissions,isSpam,Boolean flag whether the submission is marked as spam, defaults to 0.
+WebFormSubmissions,submittedAt,Timestamp when the form was submitted, can be NULL.
+WebFormSubmissions,createdAt,Timestamp when this record was created, can be NULL.
+WebFormSubmissions,updatedAt,Timestamp when this record was last modified, can be NULL.
+WebFormTrackings,trackingId,Unique numeric primary key for web form tracking event.
+WebFormTrackings,formId,Numeric identifier of the web form this tracking belongs to.
+WebFormTrackings,eventType,"Enum value indicating the type of tracking event: view, start, field_focus, field_complete, submit_attempt, submit_success, submit_error, or abandon."
+WebFormTrackings,fieldName,Name of the field involved in the event, can be NULL.
+WebFormTrackings,errorMessage,Error message if applicable, can be NULL.
+WebFormTrackings,sessionId,Session identifier, can be NULL.
+WebFormTrackings,visitorId,Visitor identifier, can be NULL.
+WebFormTrackings,sourceUrl,URL where the form was embedded, can be NULL.
+WebFormTrackings,referrerUrl,Referrer URL, can be NULL.
+WebFormTrackings,userAgent,User agent string of the visitor, can be NULL.
+WebFormTrackings,ipAddress,IP address of the visitor, can be NULL.
+WebFormTrackings,deviceType,Type of device used, can be NULL.
+WebFormTrackings,browser,Browser name and version, can be NULL.
+WebFormTrackings,os,Operating system of the device, can be NULL.
+WebFormTrackings,screenResolution,Screen resolution of the device, can be NULL.
+WebFormTrackings,timeOnForm,Time spent on the form in seconds, can be NULL.
+WebFormTrackings,timeToSubmit,Time taken to submit the form in seconds, can be NULL.
+WebFormTrackings,utmSource,UTM source parameter, can be NULL.
+WebFormTrackings,utmMedium,UTM medium parameter, can be NULL.
+WebFormTrackings,utmCampaign,UTM campaign parameter, can be NULL.
+WebFormTrackings,country,Country of the visitor, can be NULL.
+WebFormTrackings,city,City of the visitor, can be NULL.
+WebFormTrackings,metadata,Text field storing additional tracking metadata, can be NULL.
+WebFormTrackings,eventTimestamp,Timestamp when the event occurred, can be NULL.
+WebFormTrackings,createdAt,Timestamp when this record was created, can be NULL.
+WhatsAppCampaigns,campaignId,Unique numeric primary key for WhatsApp campaign.
+WhatsAppCampaigns,campaignName,Name of the campaign.
+WhatsAppCampaigns,messageBody,Text body of the WhatsApp message.
+WhatsAppCampaigns,receivers,String specifying recipient list or filter criteria.
+WhatsAppCampaigns,templateId,Identifier of the WhatsApp template used, can be NULL.
+WhatsAppCampaigns,sendingTime,Timestamp or schedule for sending the campaign.
+WhatsAppCampaigns,isActive,Boolean flag whether the campaign is active.
+WhatsAppCampaigns,status,Current status of the campaign.
+WhatsAppCampaigns,totalReceivers,Numeric count of total intended recipients.
+WhatsAppCampaigns,messagesSent,Numeric count of messages successfully sent.
+WhatsAppCampaigns,messagesFailed,Numeric count of messages that failed to send.
+WhatsAppCampaigns,lastProcessedAt,Timestamp when the campaign was last processed, can be NULL.
+WhatsAppCampaigns,completedAt,Timestamp when the campaign completed, can be NULL.
+WhatsAppCampaigns,entityType,Type of entity this campaign targets.
+WhatsAppCampaigns,mediaUrl,URL to media file attached to the message, can be NULL.
+WhatsAppCampaigns,personId,Numeric identifier of associated person, can be NULL.
+WhatsAppCampaigns,personName,Name of the associated person, can be NULL.
+WhatsAppCampaigns,filterName,Name of the filter used for recipient selection, can be NULL.
+WhatsAppCampaigns,recipientFilterName,Name of the recipient filter, can be NULL.
+WhatsAppCampaigns,filterId,Numeric identifier of the filter used, can be NULL.
+WhatsAppCampaigns,filterType,Type of filter used.
+WhatsAppCampaigns,createdBy,Numeric identifier of the user who created this campaign.
+WhatsAppCampaigns,createdAt,Timestamp when this record was created.
+WhatsAppCampaigns,updatedAt,Timestamp when this record was last modified.
+whatsapp_messages,messageId,Unique numeric primary key for WhatsApp message.
+whatsapp_messages,twilioMessageSid,Twilio message SID identifier.
+whatsapp_messages,twilioAccountSid,Twilio account SID that sent or received this message.
+whatsapp_messages,entityType,Type of CRM entity this message is linked to.
+whatsapp_messages,entityId,Numeric identifier of the linked entity.
+whatsapp_messages,leadId,Numeric identifier of associated lead, can be NULL.
+whatsapp_messages,dealId,Numeric identifier of associated deal, can be NULL.
+whatsapp_messages,personId,Numeric identifier of associated person, can be NULL.
+whatsapp_messages,masterUserID,Numeric identifier of the user who owns this message.
+whatsapp_messages,ownerId,Numeric identifier of the message owner.
+whatsapp_messages,fromPhone,Sender's phone number.
+whatsapp_messages,toPhone,Recipient's phone number.
+whatsapp_messages,direction,Direction of the message: inbound or outbound.
+whatsapp_messages,messageType,Type of the message such as text or media.
+whatsapp_messages,status,Current status of the message.
+whatsapp_messages,twilioStatus,Raw status from Twilio API.
+whatsapp_messages,errorCode,Error code if the message failed.
+whatsapp_messages,errorMessage,Error message if the message failed.
+whatsapp_messages,hasMedia,Boolean flag whether the message has media attachments.
+whatsapp_messages,mediaCount,Numeric count of media attachments.
+whatsapp_messages,bodyPreview,Preview of the message body text.
+whatsapp_messages,visibility,Visibility setting for this message.
+whatsapp_messages,isArchived,Boolean flag whether the message is archived.
+whatsapp_messages,sentAt,Timestamp when the message was sent.
+whatsapp_messages,deliveredAt,Timestamp when the message was delivered.
+whatsapp_messages,readAt,Timestamp when the message was read.
+whatsapp_messages,createdAt,Timestamp when this record was created.
+whatsapp_messages,updatedAt,Timestamp when this record was last modified.
+whatsapp_templates,templateId,Unique numeric primary key for WhatsApp template.
+whatsapp_templates,masterUserID,Numeric identifier of the user who owns this template.
+whatsapp_templates,templateName,Name of the WhatsApp template.
+whatsapp_templates,templateBody,Body content of the WhatsApp template.
+whatsapp_templates,category,"Category of the template such as marketing or utility."
+whatsapp_templates,variables,String defining variables used in the template.
+whatsapp_templates,isActive,Boolean flag whether this template is active.
+whatsapp_templates,usageCount,Numeric count of how many times this template has been used.
+whatsapp_templates,createdAt,Timestamp when this record was created.
+whatsapp_templates,updatedAt,Timestamp when this record was last modified.

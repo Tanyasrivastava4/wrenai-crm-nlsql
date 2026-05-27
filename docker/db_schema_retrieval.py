@@ -168,37 +168,15 @@ async def table_retrieval(
         )
 
 
-
 @observe(capture_input=False)
 async def dbschema_retrieval(
-    table_retrieval: dict,
-    project_id: str,
-    dbschema_retriever: Any,
+    table_retrieval: dict, project_id: str, dbschema_retriever: Any
 ) -> list[Document]:
-
     tables = table_retrieval.get("documents", [])
-
-    logger.info("\n========== RAW RETRIEVED TABLE DOCUMENTS ==========")
-
-    for i, table in enumerate(tables):
-        logger.info(f"\n--- TABLE DOCUMENT {i+1} ---")
-        logger.info(f"RAW CONTENT:\n{table.content}")
-
-        if hasattr(table, "meta"):
-            logger.info(f"META:\n{table.meta}")
-
     table_names = []
-
     for table in tables:
         content = ast.literal_eval(table.content)
         table_names.append(content["name"])
-
-    logger.info("\n========== INITIAL TABLES ==========")
-
-    for idx, name in enumerate(table_names, 1):
-        logger.info(f"{idx}. {name}")
-
-    logger.info(f"TOTAL TABLES: {len(table_names)}")
 
     table_name_conditions = [
         {"field": "name", "operator": "==", "value": table_name}
@@ -209,7 +187,7 @@ async def dbschema_retrieval(
         filters = {
             "operator": "AND",
             "conditions": [
-                {"field": "type", "operator": "==", "value": "TABLE_DESCRIPTION"},
+                {"field": "type", "operator": "==", "value": "TABLE_SCHEMA"},
                 {"operator": "OR", "conditions": table_name_conditions},
             ],
         }
@@ -219,11 +197,7 @@ async def dbschema_retrieval(
                 {"field": "project_id", "operator": "==", "value": project_id}
             )
 
-        results = await dbschema_retriever.run(
-            query_embedding=embedding["embedding"],
-            filters=filters,
-        )
-
+        results = await dbschema_retriever.run(query_embedding=[], filters=filters)
         return results["documents"]
 
     return []
@@ -466,11 +440,7 @@ class RetrievalResults(BaseModel):
 
 RETRIEVAL_MODEL_KWARGS = {
     "response_format": {
-        "type": "json_schema",
-        "json_schema": {
-            "name": "retrieval_schema",
-            "schema": RetrievalResults.model_json_schema(),
-        },
+        "type": "json_object",
     }
 }
 

@@ -200,30 +200,12 @@ async def dbschema_retrieval(
     table_retrieval: dict, embedding: dict, project_id: str, dbschema_retriever: Any
 ) -> list[Document]:
     tables = table_retrieval.get("documents", [])
-
-    logger.info("\n========== RAW RETRIEVED DOCUMENTS ==========")
-
-    for i, table in enumerate(tables):
-        logger.info(f"\n--- DOCUMENT {i+1} ---")
-        logger.info(f"CONTENT: {table.content}")
-        logger.info(f"META: {table.meta}")
-
     table_names = []
-
     for table in tables:
         content = ast.literal_eval(table.content)
         table_names.append(content["name"])
 
-    logger.info("\n========== INITIAL TABLES ==========")
-    logger.info(table_names)
-    logger.info(f"COUNT: {len(table_names)}")
-
-    logger.info("\n========== TABLE DEBUG ==========")
-
-    for t in table_names:
-        logger.info(t)
-
-    print("=================================\n")
+    logger.info(f"dbschema_retrieval with table_names: {table_names}")
 
     table_name_conditions = [
         {"field": "name", "operator": "==", "value": table_name}
@@ -246,12 +228,6 @@ async def dbschema_retrieval(
     results = await dbschema_retriever.run(
         query_embedding=embedding.get("embedding"), filters=filters
     )
-    print("\nAFTER DBSCHEMA RETRIEVAL")
-    print("DOCUMENT COUNT:", len(results["documents"]))
-
-    for d in results["documents"][:10]:
-    print(d.meta.get("name"))
-    
     return results["documents"]
 
 
@@ -280,11 +256,21 @@ def construct_db_schemas(dbschema_retrieval: list[Document]) -> list[str]:
     # remove incomplete schemas
     db_schemas = {k: v for k, v in db_schemas.items() if "type" in v and "columns" in v}
 
+    #db_schemas_in_ddl = []
+    #for table_schema in list(db_schemas.values()):
+    #    if table_schema["type"] == "TABLE":
+    #        ddl, _, _ = build_table_ddl(table_schema)
+    #        db_schemas_in_ddl.append(ddl)
+#
+    #return db_schemas_in_ddl
+
     db_schemas_in_ddl = []
-    for table_schema in list(db_schemas.values()):
+    for table_name, table_schema in db_schemas.items():
         if table_schema["type"] == "TABLE":
-            ddl, _, _ = build_table_ddl(table_schema)
-            db_schemas_in_ddl.append(ddl)
+            # Only send table name + description for intent classification
+            # Full DDL is NOT needed to classify intent — only SQL generation needs it
+            description = table_schema.get("description", "")
+            db_schemas_in_ddl.append(f"Table: {table_name}\nDescription: {description}")
 
     return db_schemas_in_ddl
 
@@ -317,28 +303,6 @@ def prompt(
 @observe(as_type="generation", capture_input=False)
 @trace_cost
 async def classify_intent(prompt: dict, generator: Any, generator_name: str) -> dict:
-    prompt_text = str(prompt.get("prompt"))
-
-    print("\n========================")
-    print("INTENT CLASSIFICATION DEBUG")
-    print("========================")
-    print("TOTAL CHARACTERS:", len(prompt_text))
-    print("TOTAL WORDS:", len(prompt_text.split()))
-
-    try:
-        import tiktoken
-
-        enc = tiktoken.get_encoding("cl100k_base")
-        token_count = len(enc.encode(prompt_text))
-        print("TOTAL TOKENS:", token_count)
-
-    except Exception as e:
-        print("TOKEN COUNT ERROR:", e)
-
-    print("\nPROMPT PREVIEW:\n")
-    print(prompt_text[:5000])
-    print("\n========================\n")
-
     return await generator(prompt=prompt.get("prompt")), generator_name
 
 
@@ -372,11 +336,7 @@ class IntentClassificationResult(BaseModel):
 
 INTENT_CLASSIFICAION_MODEL_KWARGS = {
     "response_format": {
-        "type": "json_schema",
-        "json_schema": {
-            "name": "intent_classification",
-            "schema": IntentClassificationResult.model_json_schema(),
-        },
+        "type": "json_object",
     }
 }
 
