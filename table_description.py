@@ -172,3 +172,5 @@ class TableDescription(BasicPipeline):
             cleaner=self._components["cleaner"],
             project_id=project_id,
         )
+
+  
